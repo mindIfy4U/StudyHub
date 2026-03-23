@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Hub</title>
+
+    <style>
+.card.chemie {
+    background-image: url("chemie_banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+}
+.card.physik {
+    background-image: url("physik.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+}
+.card.mathe {
+    background-image: url("mathe.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+}
+.card.biologie {
+    background-image: url("biologie.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+}
+	/* ---------- GLOBAL ---------- */
+        :root {
+            --bg: #eef3ff;
+            --text: #111827;
+            --card-bg: white;
+            --nav-bg: #1f2937;
+            --nav-text: white;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+/* ---------- FULLSCREEN PARALLAX BANNER ---------- */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+}
+
+/* ---------- BANNER IMAGE MIT GLOW + FADE-IN ---------- */
+.banner-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 120%;   /* Für hubscreen.png perfekt */
+    height: auto;
+
+    pointer-events: none;
+    user-select: none;
+
+    /* Glow */
+    filter: drop-shadow(0 0 25px rgba(0, 153, 255, 0.7));
+
+    /* Fade-In */
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+/* ---------- FADE-IN KEYFRAMES ---------- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ---------- NAVIGATION ---------- */
+.nav-header {
+    background: var(--nav-bg);
+    color: var(--nav-text);
+    padding: 16px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    cursor: pointer;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 800px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: var(--nav-bg);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* ---------- MAIN ---------- */
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 16px 40px;
+    animation: fadeIn 1.2s ease;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: 0.3s ease;
+    animation: fadeUp 1s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+}
+
+.search-box {
+    background: var(--card-bg);
+    border-radius: 999px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+    color: var(--text);
+}
+
+/* ---------- ANIMATIONEN ---------- */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}    </style>
+</head>
+
+<body>
+
+    <!-- FULLSCREEN PARALLAX BANNER -->
+    <div class="banner">
+        <img src="hubscreen.png" class="banner-img" id="parallax">
+        <div class="banner-text">
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header class="nav-header">
+        <h1>Study Hub</h1>
+
+        <button class="menu-btn">☰</button>
+
+        <nav class="nav-menu">
+            <a href="chemie.html">Chemie</a>
+            <a href="physik.html">Physik</a>
+            <a href="mathe.html">Mathe</a>
+            <a href="biologie.html">Biologie</a>
+            <a href="geschichte.html">Geschichte</a>
+            <a href="englisch.html">Englisch</a>
+            <a href="deutsch.html">Deutsch</a>
+            <a href="franzoesisch.html">Französisch</a>
+            <a href="spanisch.html">Spanisch</a>
+            <a href="geografie.html">Geografie</a>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+    <h2>Fächerübersicht</h2>
+
+    <div class="search-box">
+        <span>🔍</span>
+        <input id="searchInput" type="text" placeholder="Fach oder Thema suchen">
+    </div>
+
+    <div class="grid">
+
+        <div class="card chemie" onclick="location.href='chemie.html'">
+            <h2>Chemie</h2>
+            <p>Atomlehre, PSE, Reaktionen.</p>
+        </div>
+
+        <div class="card physik" onclick="location.href='physik.html'">
+            <h2>Physik</h2>
+            <p>Kräfte, Energie, Elektrizität.</p>
+        </div>
+
+        <div class="card mathe" onclick="location.href='mathe.html'">
+            <h2>Mathematik</h2>
+            <p>Algebra, Geometrie, Funktionen.</p>
+        </div>
+
+        <div class="card biologie" onclick="location.href='biologie.html'">
+            <h2>Biologie</h2>
+            <p>Zellen, Genetik, Ökologie.</p>
+        </div>
+
+        <div class="card geschichte" onclick="location.href='geschichte.html'">
+            <h2>Geschichte</h2>
+            <p>Epochen, Ereignisse.</p>
+        </div>
+
+        <div class="card englisch" onclick="location.href='englisch.html'">
+            <h2>Englisch</h2>
+            <p>Grammar, Vocabulary.</p>
+        </div>
+
+        <div class="card deutsch" onclick="location.href='deutsch.html'">
+            <h2>Deutsch</h2>
+            <p>Grammatik, Literatur.</p>
+        </div>
+
+        <div class="card franzoesisch" onclick="location.href='franzoesisch.html'">
+            <h2>Französisch</h2>
+            <p>Vokabeln, Grammatik.</p>
+        </div>
+
+        <div class="card spanisch" onclick="location.href='spanisch.html'">
+            <h2>Spanisch</h2>
+            <p>Grundlagen, Verben.</p>
+        </div>
+
+        <div class="card geografie" onclick="location.href='geografie.html'">
+            <h2>Geografie</h2>
+            <p>Länder, Klima.</p>
+        </div>
+  </div>
+
+ <!-- GOOGLE TRANSLATE (ALLE SPRACHEN) -->
+<div id="google_translate_element" 
+     style="position: fixed; top: 10px; right: 10px; z-index: 9999;">
+</div>
+
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'de',
+    includedLanguages: 'all', /* ALLE Sprachen */
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<!-- HAUPT-SKRIPT -->
+<script>
+/* ------------------ MENÜ ------------------ */
+document.querySelector(".menu-btn").addEventListener("click", () => {
+    document.querySelector(".nav-menu").classList.toggle("open");
+});
+
+/* ------------------ SUCHFUNKTION ------------------ */
+const searchInput = document.getElementById('searchInput');
+const cards = document.querySelectorAll('.card');
+
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(query) ? 'block' : 'none';
+    });
+});
+
+</script>
+  
+</main>
+
+<!-- SCRIPT -->
+<script>
+    // Menü öffnen
+    document.querySelector(".menu-btn").addEventListener("click", () => {
+        document.querySelector(".nav-menu").classList.toggle("open");
+    });
+
+    // Suchfunktion
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.card');
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    });
+
+    // PARALLAX EFFEKT (NEU + RICHTIG)
+const parallax = document.getElementById("parallax");
+
+window.addEventListener("scroll", () => {
+    let offset = window.pageYOffset;
+    parallax.style.transform = `translate(-50%, -50%) translateY(${offset * 0.2}px)`;
+});
+</script>
+
+</body>
+</html>

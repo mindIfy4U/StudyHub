@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Chemie – Study Hub</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background-color: #f0f5ff;
+            color: #111827;
+        }
+
+        /* Variante A – heller Header */
+        header {
+            background: #e5e7eb;
+            color: #111827;
+            padding: 18px 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        nav a {
+            color: #111827;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 16px 40px;
+        }
+
+        section {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        section h2 {
+            margin-top: 0;
+        }
+
+        /* --- BANNER ÜBER DIE GANZE BREITE + ANIMATION --- */
+
+        .hero-banner {
+            width: 100%;
+            background: white;
+            padding: 0;
+            text-align: center;
+            border-bottom: 3px solid #e0e0e0;
+
+            /* Animation */
+            animation: fadeIn 1.2s ease-out forwards;
+            opacity: 0;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            max-width: none;
+            height: auto;
+            display: block;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        /* Fade-In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Abstand unter dem Banner */
+        .white-space {
+            height: 40px;
+            background: #f0f5ff;
+        }
+
+/* --- ANIMIERTE ZEITLEISTE (optimiert für 900px Layout) --- */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Jede Karte */
+.timeline-item {
+    display: flex;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    align-items: center;
+
+    /* Animation */
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.8s ease-out forwards;
+}
+
+/* Verzögerung für sanftes Einfliegen */
+.timeline-item:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+/* Bilder kleiner + sichtbar */
+.timeline-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #e5e7eb;
+}
+
+/* Textbereich */
+.timeline-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 17px;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Chemie</h1>
+    <nav>
+        <a href="index.html">Startseite</a>
+    </nav>
+</header>
+
+<!-- BANNER -->
+<div class="hero-banner">
+    <img src="chemie_banner.jpg" alt="Banner">
+</div>
+
+<div class="white-space"></div>
+
+<div class="white-space"></div>
+<main>
+<!-- ===================== -->
+<!-- FANCY DESIGN + PASTELLFARBEN + ANIMATION -->
+<!-- ===================== -->
+
+<style>
+/* Fancy Box */
+.fancy-box {
+    border: 2px solid #dcdcdc;
+    border-radius: 10px;
+    margin: 25px 0;
+    overflow: hidden;
+    background: #fafafa;
+}
+
+/* Header – Pastellfarben wie dein Banner */
+.fancy-header {
+    background: linear-gradient(90deg, #cfe7ff, #e8f3ff);
+    color: #000; /* schwarz */
+    padding: 14px 18px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+}
+
+/* Icon unsichtbar */
+.fancy-icon {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Inhalt */
+.fancy-content {
+    display: none;
+    padding: 18px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Fade-in Effekt */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Ruhiges Inhaltsverzeichnis */
+.toc-soft {
+    border: 1px solid #cfe7ff; /* dünne hellblaue Linie */
+    background: #f7fbff;
+    border-radius: 6px;
+    padding: 15px 18px;
+    margin: 20px 0;
+}
+
+.toc-soft h3 {
+    margin-top: 0;
+    color: #000;
+    font-weight: bold;
+}
+
+.toc-soft ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc-soft li {
+    margin: 6px 0;
+    font-size: 16px;
+}
+
+.toc-soft a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.toc-soft a:hover {
+    text-decoration: underline;
+}
+
+/* Zurück nach oben Button */
+.back-top {
+    margin-top: 12px;
+    display: inline-block;
+    background: #cfe7ff;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #a8c9e8;
+}
+
+.back-top:hover {
+    background: #bcdcff;
+}
+</style>
+
+<script>
+function toggleFancy(id, iconId) {
+    const content = document.getElementById(id);
+    const icon = document.getElementById(iconId);
+
+    if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        icon.style.transform = "rotate(90deg)";
+    } else {
+        content.style.display = "none";
+        icon.style.transform = "rotate(0deg)";
+    }
+}
+</script>
+
+<style>
+
+/* Aufklapp-Header – leicht dunkleres Türkis */
+.fancy-header {
+    background: linear-gradient(90deg, #c8f4f7, #e0f9fb);
+    color: #000;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Inhalt weiß */
+.fancy-content {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* Zurück-nach-oben Pfeil – leicht dunkleres Türkis */
+.back-top {
+    background: none;
+    border: none;
+    color: #33c7d6; /* leicht dunkler, aber immer noch hell */
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+}
+
+.back-top:hover {
+    text-decoration: underline;
+}
+
+/* Rechner-Buttons (Dark Mode Standard) */
+.calc-btn {
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 6px;
+    border: none;
+    background: #333;
+    color: white;
+}
+.calc-btn.op {
+    background: #444;
+}
+.calc-btn.sci {
+    background: #555;
+}
+.calc-btn:hover {
+    background: #666;
+}
+
+/* ============================= */
+/* HELLER MODUS FÜR DEN RECHNER */
+/* ============================= */
+
+.calc-light {
+    background: #f5f5f5 !important;
+    color: #000 !important;
+}
+
+.calc-light input {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.calc-light .calc-btn {
+    background: #ddd !important;
+    color: #000 !important;
+}
+
+.calc-light .calc-btn.op {
+    background: #ccc !important;
+}
+
+.calc-light .calc-btn.sci {
+    background: #bbb !important;
+}
+</style>
+
+<!-- ===================== -->
+<!-- KAPITEL 2 – FANCY BOX -->
+<!-- ===================== -->
+
+<div id="top"></div>
+
+<div class="fancy-box">
+    <div class="fancy-header" onclick="toggleFancy('kapitel2', 'icon2')">
+        <span id="icon2" class="fancy-icon"></span>
+        2. Atomlehre, Periodensystem & Periodische Eigenschaften
+    </div>
+
+    <div id="kapitel2" class="fancy-content">
+
+        <!-- ===================== -->
+        <!-- INHALTSVERZEICHNIS IM KAPITEL -->
+        <!-- ===================== -->
+
+        <div class="toc-soft">
+            <h3>Inhaltsverzeichnis – Kapitel 2</h3>
+            <ul>
+                <li><a href="#k2-22">2.2 Historisch Bedeutsame Atommodelle</a></li>
+                <li><a href="#k2-23">2.3 Atome enthalten Elektronen</a></li>
+                <li><a href="#k2-24">2.4 Kern-Hülle-Modell</a></li>
+                <li><a href="#k2-25">2.5 Aufbau des Atoms</a></li>
+                <li><a href="#k2-26">2.6 Radioaktivität</a></li>
+                <li><a href="#k2-27">2.7 Periodensystem</a></li>
+            </ul>
+        </div>
+
+        <!-- ===================== -->
+        <!-- AB HIER KOMMEN DEINE UNTERKAPITEL -->
+        <!-- ===================== -->
+
+        <!-- 2.2 -->
+        <h3 id="k2-22">2.2 Historisch Bedeutsame Atommodelle</h3>
+                <!-- ===================== -->
+        <!-- 2.2 Historisch Bedeutsame Atommodelle -->
+        <!-- ===================== -->
+
+        <p><strong>Historisch wichtige Atommodelle und Personen</strong></p>
+
+        <h4>Demokrit (460–371 v. Chr.)</h4>
+        <p>Demokrit glaubte, dass alles aus winzigen, unteilbaren Teilchen besteht, die er Atome nannte. Seine Vorstellung war rein philosophisch und nicht wissenschaftlich belegt.</p>
+
+        <h4>John Dalton (1766–1844)</h4>
+        <p>Dalton stellte sich Atome als kleine, feste Kugeln vor und meinte, dass Atome eines Elements gleich sind. Bei chemischen Reaktionen werden sie nicht zerstört, sondern nur neu angeordnet.</p>
+
+        <h4>Joseph John Thomson (1856–1940)</h4>
+        <p>Thomson entdeckte die Elektronen und beschrieb das Atom als positiv geladene Kugel mit eingelagerten Elektronen. Dieses Modell wird <strong>Rosinenkuchenmodell</strong> genannt.</p>
+
+        <h4>Ernest Rutherford (1871–1937)</h4>
+        <p>Rutherford entdeckte den Atomkern und zeigte, dass Atome aus einem kleinen, positiven Kern und einer Elektronenhülle bestehen. Die Elektronen bewegen sich um den Kern herum.</p>
+
+        <h4>Niels Bohr (1889–1962)</h4>
+        <p>Bohr erklärte, dass Elektronen auf festen Bahnen mit bestimmter Energie um den Kern kreisen. Sie können zwischen diesen Bahnen wechseln und dabei Licht aufnehmen oder abgeben.</p>
+
+        <h4>Arnold Sommerfeld (1868–1951)</h4>
+        <p>Sommerfeld erweiterte Bohrs Modell, indem er zeigte, dass Elektronen auch auf elliptischen Bahnen laufen. Dadurch konnte man die feinen Unterschiede in den Lichtspektren der Atome besser erklären.</p>
+        <a href="#top" class="back-top">⬆️ Zurück nach oben</a>
+
+        <!-- 2.3 -->
+        <h3 id="k2-23">2.3 Atome enthalten Elektronen</h3>
+        
+	<!-- ===================== -->
+        <!-- 2.3 Atome enthalten Elektronen -->
+        <!-- ===================== -->
+
+        <h4>Elektrische Ladungen & Elektronen</h4>
+
+        <h5>Elektrische Aufladung</h5>
+        <p>
+            Beim Reiben zweier Materialien können Elektronen von einem Stoff auf den anderen übergehen.
+            Dadurch werden beide Körper elektrisch aufgeladen.
+            Hat ein Körper zu viele Elektronen, ist er <strong>negativ geladen</strong>,
+            und hat er zu wenige, ist er <strong>positiv geladen</strong>.
+        </p>
+
+        <h5>Wirkung geladener Körper</h5>
+        <p>Geladene Körper beeinflussen sich gegenseitig:</p>
+
+        <ul>
+            <li><strong>Ungleichartige Ladungen</strong> ziehen sich an.</li>
+            <li><strong>Gleichartige Ladungen</strong> stoßen sich ab.</li>
+        </ul>
+
+        <p>Beispiele:</p>
+        <ul>
+            <li>Ein aufgeladener Kunststoffstab zieht ein Alukügelchen an, stößt es nach der Berührung aber wieder ab.</li>
+            <li>Folie und Papier ziehen sich nach dem Reiben an.</li>
+            <li>Zwei geladene Folienstreifen stoßen sich gegenseitig ab.</li>
+        </ul>
+
+        <h5>Stärke der elektrischen Kraft</h5>
+        <p>Wie stark die elektrische Kraft ist, hängt davon ab:</p>
+        <ul>
+            <li>wie groß die Ladungen sind</li>
+            <li>wie weit die Körper voneinander entfernt sind</li>
+        </ul>
+
+        <p>
+            Je größer die Ladungen und je kleiner der Abstand, desto stärker wirkt die Kraft.
+            Dies beschreibt das <strong>Coulomb-Gesetz</strong>.
+        </p>
+
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="coulomb_gesetz_formel.jpg" alt="Coulomb-Gesetz Formel" style="max-width: 100%; height: auto; border-radius: 8px;">
+            <p style="font-size: 14px; color: #555;">Coulomb-Gesetz</p>
+        </div>
+
+        <h5>Elektronen und Atome</h5>
+        <p>
+            Elektronen sind die kleinsten negativen Ladungsträger und stammen aus den Atomen.
+            Sie können von Atomen abgetrennt oder hinzugefügt werden – dadurch entsteht elektrische Aufladung.
+        </p>
+
+        <a href="#top" class="back-top">⬆️ Zurück nach oben</a>
+
+        <!-- 2.4 -->
+        <h3 id="k2-24">2.4 Kern-Hülle-Modell</h3>
+        
+
+        <!-- ===================== -->
+        <!-- 2.4 Kern-Hülle-Modell -->
+        <!-- ===================== -->
+
+        <p>Noch kein Inhalt vorhanden.</p>
+
+        <a href="#top" class="back-top">⬆️ Zurück nach oben</a>
+
+        <!-- 2.5 -->
+        <h3 id="k2-25">2.5 Aufbau des Atoms</h3>
+        
+	<!-- ===================== -->
+        <!-- 2.5 Aufbau des Atoms -->
+        <!-- ===================== -->
+
+        <p>Noch kein Inhalt vorhanden.</p>
+
+        <h4>2.5.1 Kern</h4>
+        <p>Noch kein Inhalt vorhanden.</p>
+
+        <h4>2.5.2 Hülle</h4>
+        <p>Noch kein Inhalt vorhanden.</p>
+
+        <h4>2.5.3 Zusammenfassung</h4>
+        <p>Noch kein Inhalt vorhanden.</p>
+
+        <h4>2.5.4 Isotope</h4>
+        <p>Noch kein Inhalt vorhanden.</p>
+        <a href="#top" class="back-top">⬆️ Zurück nach oben</a>
+
+	<!-- 2.6 -->
+        <h3 id="k2-26">2.6 Radioaktivität</h3>
+
+	<!-- ===================== -->
+	<!-- 2.6 RADIOAKTIVITÄT -->
+	<!-- ===================== -->
+
+        <p>
+            Radioaktive Stoffe zerfallen mit der Zeit. Jede Art von radioaktivem Stoff besitzt eine
+            <strong>Halbwertszeit</strong>.
+        </p>
+
+        <p>
+            Für organische Materialien verwendet man die <strong>C‑14‑Methode</strong>.
+        </p>
+
+        <!-- ===================== -->
+        <!-- 2.6.6 C‑14 METHODE -->
+        <!-- ===================== -->
+
+        <h4>2.6.6 Altersbestimmung mittels 14C‑Methode</h4>
+
+        <p>
+            Eine Mumie hat nur noch <strong>60 %</strong> ihrer ursprünglichen C‑14‑Aktivität.
+        </p>
+
+        <p><strong>Gegeben:</strong></p>
+        <ul>
+            <li>Halbwertszeit: 5730 Jahre</li>
+            <li>Aktivität: 60 % = 0.60</li>
+        </ul>
+
+        <p><strong>Gesucht:</strong> Alter der Mumie</p>
+
+        <!-- ===================== -->
+        <!-- WERKZEUGE -->
+        <!-- ===================== -->
+
+        <div style="padding: 12px; border-radius: 8px; background: #f9ffff; margin-bottom: 15px;">
+
+            <!-- WISSENSCHAFTLICHER RECHNER -->
+            <div id="sciCalc" style="
+                max-width: 360px;
+                background:#111;
+                color:#eee;
+                padding:12px;
+                border-radius:10px;
+                margin-bottom:15px;
+            ">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                    <span style="font-weight:bold;">Wissenschaftlicher Rechner</span>
+                    <label style="font-size:12px;">
+                        Dark&nbsp;Mode
+                        <input type="checkbox" id="calcDarkToggle" checked onchange="toggleCalcDarkMode()" />
+                    </label>
+                </div>
+
+                <input id="calcDisplay" readonly
+                    style="width:100%; font-size:24px; padding:8px; margin-bottom:8px; text-align:right; border-radius:6px; border:none; background:#222; color:#fff;">
+
+                <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+                    <button onclick="calcInput('7')" class="calc-btn">7</button>
+                    <button onclick="calcInput('8')" class="calc-btn">8</button>
+                    <button onclick="calcInput('9')" class="calc-btn">9</button>
+                    <button onclick="calcInput('/')" class="calc-btn op">÷</button>
+
+                    <button onclick="calcInput('4')" class="calc-btn">4</button>
+                    <button onclick="calcInput('5')" class="calc-btn">5</button>
+                    <button onclick="calcInput('6')" class="calc-btn">6</button>
+                    <button onclick="calcInput('*')" class="calc-btn op">×</button>
+
+                    <button onclick="calcInput('1')" class="calc-btn">1</button>
+                    <button onclick="calcInput('2')" class="calc-btn">2</button>
+                    <button onclick="calcInput('3')" class="calc-btn">3</button>
+                    <button onclick="calcInput('-')" class="calc-btn op">−</button>
+
+                    <button onclick="calcInput('0')" class="calc-btn">0</button>
+                    <button onclick="calcInput('.')" class="calc-btn">.</button>
+                    <button onclick="calcPercent()" class="calc-btn">%</button>
+                    <button onclick="calcInput('+')" class="calc-btn op">+</button>
+
+                    <button onclick="calcFunc('sin')" class="calc-btn sci">sin</button>
+                    <button onclick="calcFunc('cos')" class="calc-btn sci">cos</button>
+                    <button onclick="calcFunc('tan')" class="calc-btn sci">tan</button>
+                    <button onclick="calcFunc('sqrt')" class="calc-btn sci">√</button>
+                </div>
+
+                <button onclick="calcEquals()"
+                    style="margin-top:8px; width:100%; padding:8px; font-size:18px; border-radius:6px; border:none; background:#4caf50; color:#fff;">
+                    =
+                </button>
+
+                <button onclick="calcClear()"
+                    style="margin-top:6px; width:100%; padding:6px; font-size:14px; border-radius:6px; border:none; background:#ff5555; color:#fff;">
+                    C löschen
+                </button>
+
+                <div style="margin-top:10px; font-size:12px; max-height:100px; overflow-y:auto; background:#181818; padding:6px; border-radius:6px;">
+                    <strong>Verlauf:</strong>
+                    <ul id="calcHistory" style="list-style:none; padding-left:10px; margin:4px 0 0 0;"></ul>
+                </div>
+            </div>
+
+            <!-- ZEICHNEN -->
+            <button onclick="toggleDraw()"
+                style="padding:6px 12px; border-radius:6px; border:none; background:#d6faff; margin-bottom:8px;">
+                ✏️ Zeichnen ein/aus
+            </button>
+
+            <label style="margin-left:10px; font-weight:bold;">Stift:</label>
+            <select id="penSize" onchange="updatePenSize()"
+                style="padding:4px; border-radius:6px; border:1px solid #ccc;">
+                <option value="2">dünn</option>
+                <option value="5">mittel</option>
+                <option value="10">dick</option>
+            </select>
+
+            <label style="margin-left:10px; font-weight:bold;">Radierer:</label>
+            <select id="eraserSize" onchange="updateEraserSize()"
+                style="padding:4px; border-radius:6px; border:1px solid #ccc;">
+                <option value="10">klein</option>
+                <option value="20">mittel</option>
+                <option value="35">groß</option>
+            </select>
+
+            <button onclick="setMode('draw')"
+                style="padding:6px 12px; border-radius:6px; border:none; background:#d6faff; margin-left:10px;">
+                🖊️ Stift
+            </button>
+
+            <button onclick="setMode('erase')"
+                style="padding:6px 12px; border-radius:6px; border:none; background:#d6faff; margin-left:10px;">
+                🧽 Radierer
+            </button>
+
+            <p style="margin-top:10px; font-weight:bold;">Notizen:</p>
+            <textarea style="width:100%; height:120px; border:1px solid #aaa; border-radius:6px; padding:8px;"
+                placeholder="Hier kannst du rechnen oder schreiben..."></textarea>
+
+            <canvas id="drawArea" width="700" height="350"
+                style="display:none; margin-top:10px; border:1px solid #aaa; border-radius:6px; background:white;">
+            </canvas>
+        </div>
+
+        <!-- C‑14 Eingabe -->
+        <p>
+            Alter der Mumie:
+            <input data-solution="3500" class="c14gap" style="width:120px;"> Jahre
+        </p>
+
+        <p id="c14success" style="display:none; color:green; font-weight:bold; font-size:18px;">
+            ✔ Richtig! Die Mumie ist etwa 3500 Jahre alt.
+        </p>
+
+        <!-- ===================== -->
+        <!-- 2.6.7 DOSIMETER -->
+        <!-- ===================== -->
+
+        <h4>2.6.7 Dosimeter</h4>
+
+        <p>
+            Ein Dosimeter misst, wie viel Strahlung eine Person abbekommt.
+        </p>
+
+        <!-- ===================== -->
+        <!-- 2.6.8 KERNREAKTIONEN -->
+        <!-- ===================== -->
+
+        <h4>2.6.8 Kernreaktionen</h4>
+
+        <p>
+            1938 entdeckten Hahn und Strassmann die Kernspaltung.
+        </p>
+
+        <p>
+            <img src="kernspaltung_gleichung.jpg" alt="Kernspaltung Gleichung"
+                style="width: 420px; max-width: 95%; height: auto; display: block; margin: 10px auto;">
+        </p>
+
+<script>
+
+/* ========================= */
+/* Aufklappbare Boxen        */
+/* ========================= */
+function toggleFancy(id, iconId) {
+    const box = document.getElementById(id);
+    const icon = document.getElementById(iconId);
+
+    if (box.style.display === "none") {
+        box.style.display = "block";
+        icon.textContent = "▼";
+    } else {
+        box.style.display = "none";
+        icon.textContent = "▶";
+    }
+}
+
+/* ========================= */
+/* Rechner-Funktionen        */
+/* ========================= */
+
+let calcHistory = [];
+
+function calcInput(val) {
+    document.getElementById("calcDisplay").value += val;
+}
+
+function calcClear() {
+    document.getElementById("calcDisplay").value = "";
+}
+
+function calcEquals() {
+    const display = document.getElementById("calcDisplay");
+    try {
+        const result = eval(display.value);
+        calcHistory.push(display.value + " = " + result);
+        updateHistory();
+        display.value = result;
+    } catch {
+        display.value = "Fehler";
+    }
+}
+
+function calcPercent() {
+    const display = document.getElementById("calcDisplay");
+    display.value = parseFloat(display.value) / 100;
+}
+
+function calcFunc(type) {
+    const display = document.getElementById("calcDisplay");
+    const val = parseFloat(display.value);
+
+    if (type === "sin") display.value = Math.sin(val);
+    if (type === "cos") display.value = Math.cos(val);
+    if (type === "tan") display.value = Math.tan(val);
+    if (type === "sqrt") display.value = Math.sqrt(val);
+}
+
+function updateHistory() {
+    const list = document.getElementById("calcHistory");
+    list.innerHTML = "";
+    calcHistory.slice(-10).forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+    });
+}
+
+/* ========================= */
+/* Light / Dark Mode Rechner */
+/* ========================= */
+
+function toggleCalcDarkMode() {
+    const box = document.getElementById("sciCalc");
+    const isDark = document.getElementById("calcDarkToggle").checked;
+
+    if (isDark) {
+        box.classList.remove("calc-light");
+    } else {
+        box.classList.add("calc-light");
+    }
+}
+
+/* ========================= */
+/* Zeichenfläche             */
+/* ========================= */
+
+let drawMode = "draw";
+let drawing = false;
+let ctx;
+
+function toggleDraw() {
+    const canvas = document.getElementById("drawArea");
+    canvas.style.display = canvas.style.display === "none" ? "block" : "none";
+
+    if (!ctx) {
+        ctx = canvas.getContext("2d");
+        canvas.addEventListener("mousedown", startDraw);
+        canvas.addEventListener("mouseup", stopDraw);
+        canvas.addEventListener("mousemove", draw);
+    }
+}
+
+function startDraw(e) {
+    drawing = true;
+    draw(e);
+}
+
+function stopDraw() {
+    drawing = false;
+    ctx.beginPath();
+}
+
+function draw(e) {
+    if (!drawing) return;
+
+    const canvas = document.getElementById("drawArea");
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    if (drawMode === "draw") {
+        ctx.lineWidth = document.getElementById("penSize").value;
+        ctx.strokeStyle = "black";
+    } else {
+        ctx.lineWidth = document.getElementById("eraserSize").value;
+        ctx.strokeStyle = "white";
+    }
+
+    ctx.lineCap = "round";
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+}
+
+function setMode(mode) {
+    drawMode = mode;
+}
+
+function updatePenSize() {}
+function updateEraserSize() {}
+
+/* ========================= */
+/* C-14 Eingabeprüfung       */
+/* ========================= */
+
+document.querySelectorAll(".c14gap").forEach(input => {
+    input.addEventListener("input", function () {
+        const solution = this.dataset.solution;
+        if (this.value == solution) {
+            document.getElementById("c14success").style.display = "block";
+        } else {
+            document.getElementById("c14success").style.display = "none";
+        }
+    });
+});
+
+</script>
+
+	<!-- 2.7 -->
+        <h3 id="k2-27">2.7 Periodensystem</h3>
+
+<!-- ===================== -->
+<!-- 2.7 PERIODENSYSTEM -->
+<!-- ===================== -->
+
+<!-- PERIODENSYSTEM BILD GANZ OBEN -->
+<div style="text-align:center; margin: 20px 0;">
+    <img src="pse.jpg"
+         alt="Periodensystem der Elemente"
+         style="width: 900px; max-width: 95%; height: auto; border-radius: 8px; cursor: pointer;"
+         onclick="openImageModal(this.src)">
+</div>
+
+	<!-- ===================== -->
+	<!-- 2.7.1 SCHALENMODELL -->
+	<!-- ===================== -->
+
+<h3>2.7.1 Schalenmodell – einfach erklärt</h3>
+
+<p><strong>1. Elektronen bewegen sich in Schalen</strong></p>
+<p>
+    In einem Atom befinden sich die Elektronen nicht irgendwo, sondern in <strong>bestimmten Bereichen</strong>
+    um den Kern. Diese Bereiche nennt man <strong>Elektronenschalen</strong>. Sie liegen wie
+    <strong>Zwiebelringe</strong> konzentrisch um den Kern herum.
+</p>
+
+<p><strong>2. Jede Schale hat eine Nummer und einen Buchstaben</strong></p>
+<p>Die Schalen werden von innen nach außen nummeriert:</p>
+<ul>
+    <li><strong>n = 1</strong> ist die innerste Schale</li>
+    <li><strong>n = 7</strong> ist die äußerste theoretische Schale</li>
+</ul>
+<p>Zusätzlich tragen sie die Namen <strong>K bis Q</strong>.</p>
+
+<p><strong>3. Wie viele Elektronen passen in eine Schale?</strong></p>
+<p>Dafür gibt es eine einfache Formel:</p>
+<p style="font-size: 18px; font-weight: bold; text-align: center;">z = 2n²</p>
+
+<p>Beispiele:</p>
+<ul>
+    <li>n = 1 → 2 Elektronen</li>
+    <li>n = 2 → 8 Elektronen</li>
+    <li>n = 3 → 18 Elektronen</li>
+</ul>
+
+<p><strong>4. Die äußerste Schale hat eine Sonderregel</strong></p>
+<p style="font-weight: bold;">
+    In der äußersten Schale befinden sich nie mehr als 8 Elektronen.
+</p>
+
+<p><strong>5. Warum ist das wichtig?</strong></p>
+<ul>
+    <li>wie ein Atom reagiert</li>
+    <li>ob es Elektronen abgibt oder aufnimmt</li>
+    <li>warum Elemente ähnliche Eigenschaften haben</li>
+    <li>warum Edelgase besonders stabil sind</li>
+</ul>
+
+<!-- ===================== -->
+<!-- 2.7.2 PERIODE & HAUPTGRUPPE -->
+<!-- ===================== -->
+
+<h3>2.7.2 Periode und Hauptgruppe</h3>
+
+<p>
+    Die Periode und die Hauptgruppe haben einen Zusammenhang zwischen dem Bau des Atoms
+    und der Stellung im Periodensystem.
+</p>
+
+<p>
+    Um den Zusammenhang zu erklären, habe ich zwei Beispiele ausgewählt.
+</p>
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="perioden_hauptgruppe.jpg"
+        alt="Phosphor im Periodensystem"
+        style="width: 600px; max-width: 95%; height: auto; cursor: pointer;"
+        onclick="openImageModal(this.src)">
+</div>
+
+<h5>Lückentext: Das Element Phosphor</h5>
+
+<p>Fülle die Lücken im Text über das Element Phosphor aus.</p>
+
+<p>Phosphor steht in der <input id="p1" size="3"> Periode und in der <input id="p2" size="3"> Hauptgruppe.</p>
+<p>Die Ordnungszahl lautet <input id="p3" size="3">.</p>
+<p>Die Atommasse beträgt ungefähr <input id="p4" size="5">.</p>
+<p>Phosphor besitzt <input id="p5" size="3"> Protonen und <input id="p6" size="3"> Neutronen.</p>
+<p>In der Hülle befinden sich <input id="p7" size="3"> Elektronen.</p>
+
+<p>
+    Die Elektronen verteilen sich auf <input id="p8" size="3"> Schalen:
+    <input id="p9" size="3"> in der K‑Schale,
+    <input id="p10" size="3"> in der L‑Schale und
+    <input id="p11" size="3"> in der M‑Schale.
+</p>
+
+<button onclick="checkPhosphor()">Korrigieren</button>
+<p id="result" style="font-weight: bold; margin-top: 10px;"></p>
+
+<!-- ===================== -->
+<!-- 2.7.3 PERIODISCHE EIGENSCHAFTEN -->
+<!-- ===================== -->
+
+<h3>2.7.3 Periodische Eigenschaften</h3>
+
+<h4>Elementklassen im Periodensystem</h4>
+
+<p>Die Periodentabelle lässt sich in <strong>drei Elementklassen</strong> einteilen:</p>
+
+<ul>
+    <li><strong>Metalle</strong></li>
+    <li><strong>Halbmetalle</strong></li>
+    <li><strong>Nichtmetalle</strong></li>
+</ul>
+
+<h4>Was unterscheidet diese Klassen?</h4>
+
+<h5>Metalle</h5>
+<ul>
+    <li>leiten elektrischen Strom</li>
+    <li>haben metallischen Glanz</li>
+    <li>sind verformbar</li>
+</ul>
+
+<h5>Halbmetalle</h5>
+<ul>
+    <li>sehen aus wie Metalle</li>
+    <li>verhalten sich chemisch wie Nichtmetalle</li>
+    <li>leiten Strom nur schwach</li>
+</ul>
+
+<h5>Nichtmetalle</h5>
+<ul>
+    <li>leiten keinen elektrischen Strom</li>
+    <li>sind spröde</li>
+    <li>viele sind gasförmig</li>
+</ul>
+
+<h4>Hauptgruppen (8 Gruppen)</h4>
+
+<p>Metalle, Halbmetalle und Nichtmetalle lassen sich in 8 verschiedene Hauptgruppen einteilen.</p>
+
+<h5>Gruppe I</h5>
+<ul><li>Wasserstoff + Alkalimetalle</li></ul>
+
+<h5>Gruppe II</h5>
+<ul><li>Erdalkalimetalle</li></ul>
+
+<h5>Gruppe III</h5>
+<ul><li>Borgruppe</li></ul>
+
+<h5>Gruppe IV</h5>
+<ul><li>Kohlenstoffgruppe</li></ul>
+
+<h5>Gruppe V</h5>
+<ul><li>Stickstoffgruppe</li></ul>
+
+<h5>Gruppe VI</h5>
+<ul><li>Chalkogene</li></ul>
+
+<h5>Gruppe VII</h5>
+<ul><li>Halogene</li></ul>
+
+<h5>Gruppe VIII</h5>
+<ul><li>Edelgase</li></ul>
+
+<p>Die wichtigsten Hauptgruppen sind Alkalimetalle, Erdalkalimetalle, Chalkogene, Halogene und Edelgase.</p>
+
+<a href="#top" class="back-top">⬆️ Zurück nach oben</a>
+
+    </div> <!-- Ende von kap2 -->
+</div> <!-- Ende fancy-box -->
