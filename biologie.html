@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Biologie – Study Hub</title>
 
-    <style>
+       <style>
         body {
             margin: 0;
             font-family: system-ui, sans-serif;
@@ -12,7 +12,7 @@
             color: #111827;
         }
 
-        /* Header */
+        /* Variante A – heller Header */
         header {
             background: #e5e7eb;
             color: #111827;
@@ -34,7 +34,6 @@
             font-size: 14px;
         }
 
-        /* Main Layout */
         main {
             max-width: 900px;
             margin: 30px auto;
@@ -49,8 +48,13 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.06);
         }
 
-        /* Banner */
-.hero-banner {
+        section h2 {
+            margin-top: 0;
+        }
+
+        /* --- BANNER ÜBER DIE GANZE BREITE + ANIMATION --- */
+
+        .hero-banner {
             width: 100%;
             background: white;
             padding: 0;
@@ -72,10 +76,22 @@
             box-shadow: none;
         }
 
-
+        /* Fade-In Animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-15px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Abstand unter dem Banner */
+        .white-space {
+            height: 40px;
+            background: #f0f5ff;
         }
 
         .white-space {
