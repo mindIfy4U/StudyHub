@@ -111,7 +111,7 @@
 
 <!-- Banner -->
 <div class="hero-banner">
-    <img src="biologie.jpg" alt="Banner">
+    <img src="biologie_banner.jpg" alt="Banner">
 </div>
 
 <div class="white-space"></div>
@@ -119,67 +119,118 @@
 <main>
 
 <section>
-    <h1>4 Grundlagen der Ökologie</h1>
-    <h2>4.1 Ökologie – Lebewesen und ihre Umwelt</h2>
+    <!-- KLAPP-KAPITEL (ÖKOLOGIE) -->
+<style>
+    .klappbox {
+        background: #e6f7e6; /* hellgrün */
+        border: 2px solid #b6e3b6;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
 
-    <h3>Was genau ist die Ökologie?</h3>
-    <p>
-        Ökologie beschreibt das Zusammenspiel aller Lebewesen und ihrer Umwelt. Man kann es sich wie eine Waage
-        vorstellen, bei der auf beiden Seiten gleich viel Gewicht liegt. Dieses Gleichgewicht sorgt dafür, dass die
-        Natur funktioniert. Wenn man etwas an dieser Waage verändert – zum Beispiel Gewicht entfernt oder hinzufügt –
-        gerät alles aus dem Gleichgewicht. Genauso ist es in der Natur: Wenn ein wichtiges Tier wie der Wolf fast
-        ausstirbt, fehlt den Rehen ihr natürlicher Feind. Dadurch vermehren sie sich stärker, fressen mehr Pflanzen
-        und bringen das gesamte Gleichgewicht der Natur durcheinander. Ausserdem untersucht die Ökologie, wie Energie
-        und Nährstoffe in einem Ökosystem weitergegeben werden. Deshalb wird sie auch als die Lehre der Umwelt
-        bezeichnet – sozusagen die Verhaltensregeln der Natur.
-    </p>
+    .klapp-header {
+        background: #d4f2d4;
+        padding: 14px 18px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+        color: #1a4d1a;
+    }
 
-    <div class="summary">
-        <strong>Zusammengefasst:</strong>
-        <ul>
-            <li>Ökologie = Zusammenspiel von Lebewesen und Umwelt</li>
-            <li>Natur funktioniert wie eine Waage → braucht Gleichgewicht</li>
-            <li>Eingriffe stören das Gleichgewicht (z. B. Wolf fehlt → Rehe vermehren sich → Pflanzen werden weniger)</li>
-            <li>Energie und Nährstoffe werden im Ökosystem weitergegeben</li>
-            <li>Ökologie = Lehre der Umwelt oder „Verhaltensregeln der Natur“</li>
-        </ul>
+    .klapp-content {
+        display: none;
+        padding: 18px;
+        background: white;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+
+<script>
+    function toggleKlapp(id) {
+        const box = document.getElementById(id);
+        box.style.display = (box.style.display === "block") ? "none" : "block";
+    }
+</script>
+
+<div class="klappbox">
+    <div class="klapp-header" onclick="toggleKlapp('oekologie')">
+        4 Grundlagen der Ökologie
     </div>
 
-    <h3>Lebewesen und ihre Umwelt – Die unerwünschte Kröte in Australien</h3>
-    <p>
-        1935 wurden Aga-Kröten aus Südamerika nach Australien gebracht, um Schädlinge in Zuckerrohrfeldern zu
-        bekämpfen. Doch die Idee ging schief: Die Kröten vermehrten sich schnell, breiteten sich über grosse Teile
-        des Landes aus und wurden selbst zum Problem. Heute gibt es schätzungsweise über 1,5 Milliarden Kröten. Sie
-        verdrängen heimische Arten, sind giftig für viele Tiere und stören das ökologische Gleichgewicht.
-    </p>
+    <div class="klapp-content" id="oekologie">
 
-    <p>
-        Eine Aga-Kröte kann pro Jahr rund 35'000 Eier legen und sich dadurch extrem schnell vermehren. Zusätzlich ist
-        ihr Gift für viele heimische Tiere wie Hasen oder Füchse lebensgefährlich. Wenn diese Tiere die Kröte fressen
-        oder mit ihrem Gift in Kontakt kommen, können sie daran sterben. Dadurch geraten viele einheimische Tierarten
-        unter Druck und das gesamte Ökosystem wird geschwächt.
-    </p>
- <p>
-    Doch die Aga-Kröte ist nur eine von vielen eingeschleppten Arten in Australien. Auch Hasen, Füchse, Katzen
-    oder Dromedare wurden von Siedlern ausgesetzt und bedrohen heute die empfindliche Flora und Fauna. Weil
-    Australiens Ökosystem sehr fragil ist, können sich einheimische Arten kaum gegen solche Eindringlinge
-    durchsetzen. Das zeigt, wie komplex Ökosysteme sind und dass Eingriffe des Menschen nur mit grosser Vorsicht
-    erfolgen sollten, da sie unerwartete und oft schädliche Folgen haben können.
-  </p>
+        <h2>4.1 Ökologie – Lebewesen und ihre Umwelt</h2>
 
-  <div class="summary">
-    <strong>Zusammengefasst:</strong>
-    <ul>
-      <li>Aga‑Kröten wurden 1935 nach Australien gebracht, um Schädlinge zu bekämpfen.</li>
-      <li>Sie vermehrten sich stark und wurden selbst zum Problem.</li>
-      <li>Heute leben über 1,5 Milliarden Kröten dort.</li>
-      <li>Sie sind giftig und gefährlich für viele heimische Tiere.</li>
-      <li>Eine Kröte legt ca. 35'000 Eier pro Jahr.</li>
-      <li>Sie verdrängen einheimische Arten und stören das Gleichgewicht.</li>
-      <li>Auch andere eingeschleppte Tiere bedrohen Australiens Natur.</li>
-      <li>Das zeigt: Ökosysteme sind empfindlich und Eingriffe können grosse Folgen haben.</li>
-    </ul>
-  </div>
+        <h3>Was genau ist die Ökologie?</h3>
+        <p>
+        Ökologie beschreibt das Zusammenspiel aller Lebewesen und ihrer Umwelt. Man kann es sich wie eine Waage vorstellen, 
+        bei der auf beiden Seiten gleich viel Gewicht liegt. Dieses Gleichgewicht sorgt dafür, dass die Natur funktioniert. 
+        Wenn man etwas an dieser Waage verändert – zum Beispiel Gewicht entfernt oder hinzufügt – gerät alles aus dem Gleichgewicht. 
+        Genauso ist es in der Natur: Wenn ein wichtiges Tier wie der Wolf fast ausstirbt, fehlt den Rehen ihr natürlicher Feind. 
+        Dadurch vermehren sie sich stärker, fressen mehr Pflanzen und bringen das gesamte Gleichgewicht der Natur durcheinander. 
+        Ausserdem untersucht die Ökologie, wie Energie und Nährstoffe in einem Ökosystem weitergegeben werden. 
+        Deshalb wird sie auch als die Lehre der Umwelt bezeichnet – sozusagen die Verhaltensregeln der Natur.
+        </p>
+
+        <div class="summary">
+            <strong>Zusammengefasst:</strong>
+            <ul>
+                <li>Ökologie = Zusammenspiel von Lebewesen und Umwelt</li>
+                <li>Natur funktioniert wie eine Waage → braucht Gleichgewicht</li>
+                <li>Eingriffe stören das Gleichgewicht (z. B. Wolf fehlt → Rehe vermehren sich → Pflanzen werden weniger)</li>
+                <li>Energie und Nährstoffe werden im Ökosystem weitergegeben</li>
+                <li>Ökologie = Lehre der Umwelt oder „Verhaltensregeln der Natur“</li>
+            </ul>
+        </div>
+
+        <h3>Lebewesen und ihre Umwelt – Die unerwünschte Kröte in Australien</h3>
+
+        <p>
+        1935 wurden Aga-Kröten aus Südamerika nach Australien gebracht, um Schädlinge in Zuckerrohrfeldern zu bekämpfen. 
+        Doch die Idee ging schief: Die Kröten vermehrten sich schnell, breiteten sich über grosse Teile des Landes aus 
+        und wurden selbst zum Problem. Heute gibt es schätzungsweise über 1,5 Milliarden Kröten. 
+        Sie verdrängen heimische Arten, sind giftig für viele Tiere und stören das ökologische Gleichgewicht.
+        </p>
+
+        <p>
+        Eine Aga-Kröte kann pro Jahr rund 35'000 Eier legen und sich dadurch extrem schnell vermehren. 
+        Zusätzlich ist ihr Gift für viele heimische Tiere wie Hasen oder Füchse lebensgefährlich. 
+        Wenn diese Tiere die Kröte fressen oder mit ihrem Gift in Kontakt kommen, können sie daran sterben. 
+        Dadurch geraten viele einheimische Tierarten unter Druck und das gesamte Ökosystem wird geschwächt.
+        </p>
+
+        <p>
+        Doch die Aga-Kröte ist nur eine von vielen eingeschleppten Arten in Australien. 
+        Auch Hasen, Füchse, Katzen oder Dromedare wurden von Siedlern ausgesetzt und bedrohen heute die empfindliche Flora und Fauna. 
+        Weil Australiens Ökosystem sehr fragil ist, können sich einheimische Arten kaum gegen solche Eindringlinge durchsetzen. 
+        Das zeigt, wie komplex Ökosysteme sind und dass Eingriffe des Menschen nur mit grosser Vorsicht erfolgen sollten, 
+        da sie unerwartete und oft schädliche Folgen haben können.
+        </p>
+
+        <div class="summary">
+            <strong>Zusammengefasst:</strong>
+            <ul>
+                <li>Aga‑Kröten wurden 1935 nach Australien gebracht, um Schädlinge zu bekämpfen.</li>
+                <li>Sie vermehrten sich stark und wurden selbst zum Problem.</li>
+                <li>Heute leben über 1,5 Milliarden Kröten dort.</li>
+                <li>Sie sind giftig und gefährlich für viele heimische Tiere.</li>
+                <li>Eine Kröte legt ca. 35'000 Eier pro Jahr.</li>
+                <li>Sie verdrängen einheimische Arten und stören das Gleichgewicht.</li>
+                <li>Auch andere eingeschleppte Tiere bedrohen Australiens Natur.</li>
+                <li>Das zeigt: Ökosysteme sind empfindlich und Eingriffe können grosse Folgen haben.</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
 </section>
+</main>
 </body>
 </html>
