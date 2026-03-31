@@ -51,20 +51,27 @@
 
         /* Banner */
 .hero-banner {
-    width: 100%;
-    background: white;
-    padding: 0;
-    text-align: center;
-    border-bottom: 3px solid #e0e0e0;
-    animation: fadeIn 1.2s ease-out forwards;
-}
+            width: 100%;
+            background: white;
+            padding: 0;
+            text-align: center;
+            border-bottom: 3px solid #e0e0e0;
 
+            /* Animation */
+            animation: fadeIn 1.2s ease-out forwards;
+            opacity: 0;
+        }
 
         .hero-banner img {
             width: 100%;
+            max-width: none;
             height: auto;
             display: block;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
         }
+
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-15px); }
