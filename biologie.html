@@ -137,6 +137,42 @@
 </div>
 <div class="white-space"></div>
 
+/* Inhaltsverzeichnis – hellgrüner Hintergrund */
+#inhalt {
+    background: #e8f5e9; /* sehr helles Grün */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+/* Liste */
+#inhalt ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Links – jetzt schwarz */
+#inhalt a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    display: block;
+    padding: 6px 0;
+}
+
+/* Hover-Effekt */
+#inhalt a:hover {
+    text-decoration: underline;
+}
+
+/* Wenn ein Kapitel aktiv ist → unterstrichen */
+#inhalt a:target,
+section:target ~ #inhalt a[href="#"+section.id] {
+    text-decoration: underline;
+}
+
 <main>
 
 <!-- INHALTSVERZEICHNIS -->
