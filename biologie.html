@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Biologie – Study Hub</title>
 
-       <style>
+    <style>
         body {
             margin: 0;
             font-family: system-ui, sans-serif;
@@ -12,7 +12,6 @@
             color: #111827;
         }
 
-        /* Variante A – heller Header */
         header {
             background: #e5e7eb;
             color: #111827;
@@ -40,11 +39,13 @@
             padding: 0 16px 40px;
         }
 
+        /* Kapitelboxen */
         section {
             background: white;
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 20px;
+            border: 2px solid #b6e3b6;
             box-shadow: 0 8px 20px rgba(0,0,0,0.06);
         }
 
@@ -52,44 +53,27 @@
             margin-top: 0;
         }
 
-        /* --- BANNER ÜBER DIE GANZE BREITE + ANIMATION --- */
-	.hero-banner {
-    width: 100%;
-    background: white;
-    padding: 0;
-    text-align: center;
-    border-bottom: 3px solid #e0e0e0;
-    opacity: 0;
-    animation: fadeIn 1.2s ease-out forwards;
-    animation-fill-mode: forwards;
-}
+        /* Banner */
+        .hero-banner {
+            width: 100%;
+            background: white;
+            padding: 0;
+            text-align: center;
+            border-bottom: 3px solid #e0e0e0;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out forwards;
+            animation-fill-mode: forwards;
+        }
 
         .hero-banner img {
             width: 100%;
-            max-width: none;
             height: auto;
             display: block;
-            margin: 0;
-            border-radius: 0;
-            box-shadow: none;
         }
 
-        /* Fade-In Animation */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Abstand unter dem Banner */
-        .white-space {
-            height: 40px;
-            background: #f0f5ff;
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .white-space {
@@ -97,26 +81,41 @@
             background: #f0f5ff;
         }
 
-        /* Ökologie-Design */
+        /* Inhaltsverzeichnis */
+        #inhalt ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #inhalt a {
+            color: #1a4d1a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Zusammenfassungen */
         .summary {
             background-color: #f2f8f3;
-            padding: 10px;
-            border-left: 4px solid #2f6f3e;
-        }
-
-        .image-block {
-            text-align: center;
+            padding: 16px;
+            border-left: 5px solid #2f6f3e;
+            border-radius: 6px;
             margin: 20px 0;
         }
 
-        .image-block img {
-            max-width: 100%;
-            border-radius: 12px;
+        /* Nach oben Button */
+        .back-to-top {
+            margin-top: 20px;
+            text-align: right;
         }
 
-        .caption {
-            font-size: 0.9em;
-            color: #555;
+        .back-to-top a {
+            background: #d4f2d4;
+            padding: 8px 14px;
+            border-radius: 8px;
+            color: #1a4d1a;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #b6e3b6;
         }
     </style>
 </head>
@@ -137,117 +136,154 @@
 <div class="white-space"></div>
 
 <main>
-    <!-- KLAPP-KAPITEL (ÖKOLOGIE) -->
-<style>
-    .klappbox {
-        background: #e6f7e6; /* hellgrün */
-        border: 2px solid #b6e3b6;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        overflow: hidden;
-    }
 
-    .klapp-header {
-        background: #d4f2d4;
-        padding: 14px 18px;
-        font-size: 20px;
-        font-weight: bold;
-        cursor: pointer;
-        user-select: none;
-        color: #1a4d1a;
-    }
+<!-- INHALTSVERZEICHNIS -->
+<section id="inhalt">
+    <h2>Inhaltsverzeichnis</h2>
+    <ul>
+        <li><a href="#k41">4.1 Ökologie – Lebewesen und ihre Umwelt</a></li>
+        <li><a href="#k42">4.2 Grundbegriffe der Ökologie</a></li>
+        <li><a href="#k43">4.3 Verschiedene Ökosysteme</a></li>
+        <li><a href="#k44">4.4 Ökofaktoren</a></li>
+        <li><a href="#k45">4.5 Das Zusammenwirken von Ökofaktoren</a></li>
+        <li><a href="#k46">4.6 Boden – mehr als nur Dreck</a></li>
+        <li><a href="#k47">4.7 Anpassung von Tieren an die Umgebungstemperatur</a></li>
+        <li><a href="#k48">4.8 Tiergeographische Regeln</a></li>
+        <li><a href="#k49">4.9 Die Nische</a></li>
+        <li><a href="#k410">4.10 Biotische Umweltfaktoren</a></li>
+    </ul>
+</section>
 
-    .klapp-content {
-        display: none;
-        padding: 18px;
-        background: white;
-        animation: fadeIn 0.3s ease;
-    }
+<!-- 4.1 -->
+<section id="k41">
+    <h2>4.1 Ökologie – Lebewesen und ihre Umwelt</h2>
 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-</style>
-
-<script>
-    function toggleKlapp(id) {
-        const box = document.getElementById(id);
-        box.style.display = (box.style.display === "block") ? "none" : "block";
-    }
-</script>
-
-<div class="klappbox">
-    <div class="klapp-header" onclick="toggleKlapp('oekologie')">
-        4 Grundlagen der Ökologie
-    </div>
-
-    <div class="klapp-content" id="oekologie">
-
-        <h2>4.1 Ökologie – Lebewesen und ihre Umwelt</h2>
-
-        <h3>Was genau ist die Ökologie?</h3>
-        <p>
-        Ökologie beschreibt das Zusammenspiel aller Lebewesen und ihrer Umwelt. Man kann es sich wie eine Waage vorstellen, 
-        bei der auf beiden Seiten gleich viel Gewicht liegt. Dieses Gleichgewicht sorgt dafür, dass die Natur funktioniert. 
-        Wenn man etwas an dieser Waage verändert – zum Beispiel Gewicht entfernt oder hinzufügt – gerät alles aus dem Gleichgewicht. 
-        Genauso ist es in der Natur: Wenn ein wichtiges Tier wie der Wolf fast ausstirbt, fehlt den Rehen ihr natürlicher Feind. 
-        Dadurch vermehren sie sich stärker, fressen mehr Pflanzen und bringen das gesamte Gleichgewicht der Natur durcheinander. 
-        Ausserdem untersucht die Ökologie, wie Energie und Nährstoffe in einem Ökosystem weitergegeben werden. 
+    <h3>Was genau ist die Ökologie?</h3>
+    <p>
+        Ökologie beschreibt das Zusammenspiel aller Lebewesen und ihrer Umwelt. Man kann es sich wie eine Waage vorstellen,
+        bei der auf beiden Seiten gleich viel Gewicht liegt. Dieses Gleichgewicht sorgt dafür, dass die Natur funktioniert.
+        Wenn man etwas an dieser Waage verändert – zum Beispiel Gewicht entfernt oder hinzufügt – gerät alles aus dem Gleichgewicht.
+        Genauso ist es in der Natur: Wenn ein wichtiges Tier wie der Wolf fast ausstirbt, fehlt den Rehen ihr natürlicher Feind.
+        Dadurch vermehren sie sich stärker, fressen mehr Pflanzen und bringen das gesamte Gleichgewicht der Natur durcheinander.
+        Ausserdem untersucht die Ökologie, wie Energie und Nährstoffe in einem Ökosystem weitergegeben werden.
         Deshalb wird sie auch als die Lehre der Umwelt bezeichnet – sozusagen die Verhaltensregeln der Natur.
-        </p>
+    </p>
 
-        <div class="summary">
-            <strong>Zusammengefasst:</strong>
-            <ul>
-                <li>Ökologie = Zusammenspiel von Lebewesen und Umwelt</li>
-                <li>Natur funktioniert wie eine Waage → braucht Gleichgewicht</li>
-                <li>Eingriffe stören das Gleichgewicht (z. B. Wolf fehlt → Rehe vermehren sich → Pflanzen werden weniger)</li>
-                <li>Energie und Nährstoffe werden im Ökosystem weitergegeben</li>
-                <li>Ökologie = Lehre der Umwelt oder „Verhaltensregeln der Natur“</li>
-            </ul>
-        </div>
-
-        <h3>Lebewesen und ihre Umwelt – Die unerwünschte Kröte in Australien</h3>
-
-        <p>
-        1935 wurden Aga-Kröten aus Südamerika nach Australien gebracht, um Schädlinge in Zuckerrohrfeldern zu bekämpfen. 
-        Doch die Idee ging schief: Die Kröten vermehrten sich schnell, breiteten sich über grosse Teile des Landes aus 
-        und wurden selbst zum Problem. Heute gibt es schätzungsweise über 1,5 Milliarden Kröten. 
-        Sie verdrängen heimische Arten, sind giftig für viele Tiere und stören das ökologische Gleichgewicht.
-        </p>
-
-        <p>
-        Eine Aga-Kröte kann pro Jahr rund 35'000 Eier legen und sich dadurch extrem schnell vermehren. 
-        Zusätzlich ist ihr Gift für viele heimische Tiere wie Hasen oder Füchse lebensgefährlich. 
-        Wenn diese Tiere die Kröte fressen oder mit ihrem Gift in Kontakt kommen, können sie daran sterben. 
-        Dadurch geraten viele einheimische Tierarten unter Druck und das gesamte Ökosystem wird geschwächt.
-        </p>
-
-        <p>
-        Doch die Aga-Kröte ist nur eine von vielen eingeschleppten Arten in Australien. 
-        Auch Hasen, Füchse, Katzen oder Dromedare wurden von Siedlern ausgesetzt und bedrohen heute die empfindliche Flora und Fauna. 
-        Weil Australiens Ökosystem sehr fragil ist, können sich einheimische Arten kaum gegen solche Eindringlinge durchsetzen. 
-        Das zeigt, wie komplex Ökosysteme sind und dass Eingriffe des Menschen nur mit grosser Vorsicht erfolgen sollten, 
-        da sie unerwartete und oft schädliche Folgen haben können.
-        </p>
-
-        <div class="summary">
-            <strong>Zusammengefasst:</strong>
-            <ul>
-                <li>Aga‑Kröten wurden 1935 nach Australien gebracht, um Schädlinge zu bekämpfen.</li>
-                <li>Sie vermehrten sich stark und wurden selbst zum Problem.</li>
-                <li>Heute leben über 1,5 Milliarden Kröten dort.</li>
-                <li>Sie sind giftig und gefährlich für viele heimische Tiere.</li>
-                <li>Eine Kröte legt ca. 35'000 Eier pro Jahr.</li>
-                <li>Sie verdrängen einheimische Arten und stören das Gleichgewicht.</li>
-                <li>Auch andere eingeschleppte Tiere bedrohen Australiens Natur.</li>
-                <li>Das zeigt: Ökosysteme sind empfindlich und Eingriffe können grosse Folgen haben.</li>
-            </ul>
-        </div>
-
+    <div class="summary">
+        <strong>Zusammengefasst:</strong>
+        <ul>
+            <li>Ökologie = Zusammenspiel von Lebewesen und Umwelt</li>
+            <li>Natur funktioniert wie eine Waage → braucht Gleichgewicht</li>
+            <li>Eingriffe stören das Gleichgewicht (z. B. Wolf fehlt → Rehe vermehren sich → Pflanzen werden weniger)</li>
+            <li>Energie und Nährstoffe werden im Ökosystem weitergegeben</li>
+            <li>Ökologie = Lehre der Umwelt oder „Verhaltensregeln der Natur“</li>
+        </ul>
     </div>
-</div>
+
+    <h3>Lebewesen und ihre Umwelt – Die unerwünschte Kröte in Australien</h3>
+
+    <p>
+        1935 wurden Aga-Kröten aus Südamerika nach Australien gebracht, um Schädlinge in Zuckerrohrfeldern zu bekämpfen.
+        Doch die Idee ging schief: Die Kröten vermehrten sich schnell, breiteten sich über grosse Teile des Landes aus
+        und wurden selbst zum Problem. Heute gibt es schätzungsweise über 1,5 Milliarden Kröten.
+        Sie verdrängen heimische Arten, sind giftig für viele Tiere und stören das ökologische Gleichgewicht.
+    </p>
+
+    <p>
+        Eine Aga-Kröte kann pro Jahr rund 35'000 Eier legen und sich dadurch extrem schnell vermehren.
+        Zusätzlich ist ihr Gift für viele heimische Tiere wie Hasen oder Füchse lebensgefährlich.
+        Wenn diese Tiere die Kröte fressen oder mit ihrem Gift in Kontakt kommen, können sie daran sterben.
+        Dadurch geraten viele einheimische Tierarten unter Druck und das gesamte Ökosystem wird geschwächt.
+    </p>
+
+    <p>
+        Doch die Aga-Kröte ist nur eine von vielen eingeschleppten Arten in Australien.
+        Auch Hasen, Füchse, Katzen oder Dromedare wurden von Siedlern ausgesetzt und bedrohen heute die empfindliche Flora und Fauna.
+        Weil Australiens Ökosystem sehr fragil ist, können sich einheimische Arten kaum gegen solche Eindringlinge durchsetzen.
+        Das zeigt, wie komplex Ökosysteme sind und dass Eingriffe des Menschen nur mit grosser Vorsicht erfolgen sollten,
+        da sie unerwartete und oft schädliche Folgen haben können.
+    </p>
+
+    <div class="summary">
+        <strong>Zusammengefasst:</strong>
+        <ul>
+            <li>Aga‑Kröten wurden 1935 nach Australien gebracht, um Schädlinge zu bekämpfen.</li>
+            <li>Sie vermehrten sich stark und wurden selbst zum Problem.</li>
+            <li>Heute leben über 1,5 Milliarden Kröten dort.</li>
+            <li>Sie sind giftig und gefährlich für viele heimische Tiere.</li>
+            <li>Eine Kröte legt ca. 35'000 Eier pro Jahr.</li>
+            <li>Sie verdrängen einheimische Arten und stören das Gleichgewicht.</li>
+            <li>Auch andere eingeschleppte Tiere bedrohen Australiens Natur.</li>
+            <li>Das zeigt: Ökosysteme sind empfindlich und Eingriffe können grosse Folgen haben.</li>
+        </ul>
+    </div>
+
+    <div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
+</section>
+
+<!-- 4.2 -->
+<section id="k42">
+    <h2>4.2 Grundbegriffe der Ökologie</h2>
+    <p>Hier kommt dein Text hin.</p>
+    <div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
+</section>
+
+<!-- 4.3 -->
+<section id="k43">
+    <h2>4.3 Verschiedene Ökosysteme</h2>
+    <p>Hier kommt dein Text hin.</p>
+    <div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
+</section>
+
+<!-- 4.4 -->
+<section id="k44">
+    <h2>4.4 Ökofaktoren</h2>
+    <p>Hier kommt dein Text hin.</p>
+    <div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
+</section>
+
+<!-- 4.5 -->
+<section id="k45">
+    <h2>4.5 Das Zusammenwirken von Ökofaktoren</h2>
+    <p>Hier kommt dein Text hin.</p>
+    <div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
+</section>
+
+<!-- 4.6 -->
+<section id="k46">
+    <h2>4.6 Boden – mehr als nur Dreck</h2>
+    <p>Hier kommt dein Text hin.</p>
+    <div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
+</section>
+
+<!-- 4.7 -->
+<section id="k47">
+    <h2>4.7 Anpassung von Tieren an die Umgebungstemperatur</h2>
+    <p>Hier kommt dein Text hin.</p>
+    <div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
+</section>
+
+<!-- 4.8 -->
+<section id="k48">
+    <h2>4.8 Tiergeographische Regeln</h2>
+    <p>Hier kommt dein Text hin.</p>
+    <div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
+</section>
+
+<!-- 4.9 -->
+<section id="k49">
+    <h2>4.9 Die Nische</h2>
+    <p>Hier kommt dein Text hin.</p>
+    <div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
+</section>
+
+<!-- 4.10 -->
+<section id="k410">
+    <h2>4.10 Biotische Umweltfaktoren</h2>
+    <p>Hier kommt dein Text hin.</p>
+    <div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
+</section>
+
 </main>
 </body>
 </html>
