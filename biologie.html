@@ -172,6 +172,12 @@
 <div class="white-space"></div>
 
 <main>
+<div class="fancy-box">
+    <div class="fancy-header">Titel vom Kapitel</div>
+    <div class="fancy-content">
+        <p>Hier steht dein Inhalt…</p>
+    </div>
+</div>
 
 <!-- INHALTSVERZEICHNIS -->
 <section id="inhalt">
@@ -313,5 +319,15 @@
 </section>
 
 </main>
+<script>
+document.querySelectorAll('.fancy-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        content.style.display = 
+            content.style.display === 'block' ? 'none' : 'block';
+    });
+});
+</script>
+
 </body>
 </html>
