@@ -6,13 +6,13 @@
 
     <style>
         body {
-argin: 0;
+            margin: 0;
             font-family: system-ui, sans-serif;
             background-color: #f0f5ff;
             color: #111827;
         }
 
-        /* Variante A – heller Header */
+        /* Header */
         header {
             background: #e5e7eb;
             color: #111827;
@@ -32,229 +32,6 @@ argin: 0;
             margin-left: 20px;
             text-decoration: none;
             font-size: 14px;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 16px 40px;
-        }
-
-        section {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-        }
-
-        section h2 {
-            margin-top: 0;
-        }
-
-        /* --- BANNER ÜBER DIE GANZE BREITE + ANIMATION --- */
-
-        .hero-banner {
-            width: 100%;
-            background: white;
-            padding: 0;
-            text-align: center;
-            border-bottom: 3px solid #e0e0e0;
-
-            /* Animation */
-            animation: fadeIn 1.2s ease-out forwards;
-            opacity: 0;
-        }
-
-        .hero-banner img {
-            width: 100%;
-            max-width: none;
-            height: auto;
-            display: block;
-            margin: 0;
-            border-radius: 0;
-            box-shadow: none;
-        }
-
-        /* Fade-In Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Abstand unter dem Banner */
-        .white-space {
-            height: 40px;
-            background: #f0f5ff;
-        }
-
-</style>
-<!-- BANNER -->
-<div class="hero-banner">
-    <img src="chemie_banner.jpg" alt="Banner">
-</div>
-
-<div class="white-space"></div>
-
-<div class="white-space"></div>
-<main>
-<!-- ===================== -->
-<!-- FANCY DESIGN + PASTELLFARBEN + ANIMATION -->
-<!-- ===================== -->
-
-<style>
-/* Fancy Box */
-.fancy-box {
-    border: 2px solid #dcdcdc;
-    border-radius: 10px;
-    margin: 25px 0;
-    overflow: hidden;
-    background: #fafafa;
-}
-
-/* Header – Pastellfarben wie dein Banner */
-.fancy-header {
-    background: linear-gradient(90deg, #cfe7ff, #e8f3ff);
-    color: #000; /* schwarz */
-    padding: 14px 18px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    user-select: none;
-}
-
-/* Icon unsichtbar */
-.fancy-icon {
-    width: 0;
-    height: 0;
-    overflow: hidden;
-}
-
-/* Inhalt */
-.fancy-content {
-    display: none;
-    padding: 18px;
-    animation: fadeIn 0.3s ease;
-}
-
-/* Fade-in Effekt */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Ruhiges Inhaltsverzeichnis */
-.toc-soft {
-    border: 1px solid #cfe7ff; /* dünne hellblaue Linie */
-    background: #f7fbff;
-    border-radius: 6px;
-    padding: 15px 18px;
-    margin: 20px 0;
-}
-
-.toc-soft h3 {
-    margin-top: 0;
-    color: #000;
-    font-weight: bold;
-}
-
-.toc-soft ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.toc-soft li {
-    margin: 6px 0;
-    font-size: 16px;
-}
-
-.toc-soft a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.toc-soft a:hover {
-    text-decoration: underline;
-}
-
-/* Zurück nach oben Button */
-.back-top {
-    margin-top: 12px;
-    display: inline-block;
-    background: #cfe7ff;
-    color: #000;
-    padding: 6px 12px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    border: 1px solid #a8c9e8;
-}
-
-.back-top:hover {
-    background: #bcdcff;
-}
-</style>
-        /* Zusammenfassungen – KEIN Grün mehr */
-        .summary {
-            background-color: #f7f7f7;
-            padding: 16px;
-            border-left: none;   /* ← grüne Linie entfernt */
-            border-radius: 6px;
-            margin: 20px 0;
-        }
-
-        header {
-            background: #e5e7eb;
-            color: #111827;
-            padding: 18px 26px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 22px;
-        }
-
-        nav a {
-            color: #111827;
-            margin-left: 20px;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        /* EIN großer weißer Block */
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 30px 16px 40px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-        }
-
-        /* Kapitel – KEINE Boxen, KEINE Ränder */
-        section {
-            background: transparent;
-            padding: 20px 0;
-            margin-bottom: 0;
-            border: none;
-            box-shadow: none;
-        }
-
-        section h2 {
-            margin-top: 0;
         }
 
         /* Banner */
@@ -284,6 +61,69 @@ argin: 0;
             background: #f0f5ff;
         }
 
+        /* Hauptbereich */
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px 16px 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        /* Kapitel */
+        section {
+            background: transparent;
+            padding: 20px 0;
+            margin-bottom: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        section h2 {
+            margin-top: 0;
+        }
+
+        /* Inhaltsverzeichnis */
+        #inhalt {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        #inhalt ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #inhalt a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: block;
+            padding: 6px 0;
+        }
+
+        #inhalt a:hover {
+            text-decoration: underline;
+        }
+
+        #inhalt a:target,
+        section:target ~ #inhalt a[href="#"+section.id] {
+            text-decoration: underline;
+        }
+
+        /* Zusammenfassungen */
+        .summary {
+            background-color: #f7f7f7;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
         /* Nach oben Button */
         .back-to-top {
             margin-top: 20px;
@@ -297,9 +137,8 @@ argin: 0;
             color: #333;
             text-decoration: none;
             font-weight: bold;
-            border: none;
         }
-
+    </style>
 </head>
 
 <body>
@@ -315,43 +154,8 @@ argin: 0;
 <div class="hero-banner">
     <img src="biologie.jpg" alt="Banner">
 </div>
+
 <div class="white-space"></div>
-
-/* Inhaltsverzeichnis – hellgrüner Hintergrund */
-#inhalt {
-    background: #e8f5e9; /* sehr helles Grün */
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
-
-/* Liste */
-#inhalt ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-/* Links – jetzt schwarz */
-#inhalt a {
-    color: #000000;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    display: block;
-    padding: 6px 0;
-}
-
-/* Hover-Effekt */
-#inhalt a:hover {
-    text-decoration: underline;
-}
-
-/* Wenn ein Kapitel aktiv ist → unterstrichen */
-#inhalt a:target,
-section:target ~ #inhalt a[href="#"+section.id] {
-    text-decoration: underline;
-}
 
 <main>
 
