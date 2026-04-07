@@ -124,20 +124,34 @@
             margin: 20px 0;
         }
 
-        /* Nach oben Button */
-        .back-to-top {
-            margin-top: 20px;
-            text-align: right;
-        }
+/* Aufklapp-Header – hellgrüner Verlauf */
+.fancy-header {
+    background: linear-gradient(90deg, #e8f5e9, #f3fbf4); /* gleiche Grünpalette wie dein Banner */
+    color: #000;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.fancy-content {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+}
+/* Zurück-nach-oben Pfeil – hellgrün passend zum Banner */
+.back-top {
+    background: none;
+    border: none;
+    color: #6bbf72; /* schönes hellgrün, gut lesbar */
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+}
 
-        .back-to-top a {
-            background: #e5e5e5;
-            padding: 8px 14px;
-            border-radius: 8px;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.back-top:hover {
+    text-decoration: underline;
+}
+
     </style>
 </head>
 
