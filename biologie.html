@@ -11,19 +11,103 @@
             background-color: #f0f5ff;
             color: #111827;
         }
+/* Fancy Box */
+.fancy-box {
+    border: 2px solid #dcdcdc;
+    border-radius: 10px;
+    margin: 25px 0;
+    overflow: hidden;
+    background: #fafafa;
+}
 
-        /* Inhaltsverzeichnis – jetzt WIRKLICH schwarz */
-        #inhalt ul {
-            list-style: none;
-            padding-left: 0;
-        }
+/* Header – Pastellfarben wie dein Banner */
+.fancy-header {
+    background: linear-gradient(90deg, #cfe7ff, #e8f3ff);
+    color: #000; /* schwarz */
+    padding: 14px 18px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+}
 
-        #inhalt a {
-            color: #000000;   /* ← SCHWARZ */
-            text-decoration: none;
-            font-weight: bold;
-        }
+/* Icon unsichtbar */
+.fancy-icon {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
 
+/* Inhalt */
+.fancy-content {
+    display: none;
+    padding: 18px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Fade-in Effekt */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Ruhiges Inhaltsverzeichnis */
+.toc-soft {
+    border: 1px solid #cfe7ff; /* dünne hellblaue Linie */
+    background: #f7fbff;
+    border-radius: 6px;
+    padding: 15px 18px;
+    margin: 20px 0;
+}
+
+.toc-soft h3 {
+    margin-top: 0;
+    color: #000;
+    font-weight: bold;
+}
+
+.toc-soft ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc-soft li {
+    margin: 6px 0;
+    font-size: 16px;
+}
+
+.toc-soft a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.toc-soft a:hover {
+    text-decoration: underline;
+}
+
+/* Zurück nach oben Button */
+.back-top {
+    margin-top: 12px;
+    display: inline-block;
+    background: #cfe7ff;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #a8c9e8;
+}
+
+.back-top:hover 
+
+{
+    background: #bcdcff;
+}
+</style>
         /* Zusammenfassungen – KEIN Grün mehr */
         .summary {
             background-color: #f7f7f7;
@@ -119,7 +203,7 @@
             font-weight: bold;
             border: none;
         }
-    </style>
+
 </head>
 
 <body>
