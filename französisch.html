@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Französisch – Study Hub</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background-color: #f0f5ff;
+            color: #111827;
+        }
+
+        /* Header */
+        header {
+            background: #e5e7eb;
+            color: #111827;
+            padding: 18px 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        nav a {
+            color: #111827;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Banner */
+        .hero-banner {
+            width: 100%;
+            background: white;
+            padding: 0;
+            text-align: center;
+            border-bottom: 3px solid #e0e0e0;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            max-width: none;
+            height: auto;
+            display: block;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .white-space {
+            height: 40px;
+            background: #f0f5ff;
+        }
+
+        /* Hauptbereich */
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px 16px 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        /* Kapitel */
+        section {
+            background: transparent;
+            padding: 20px 0;
+            margin-bottom: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        section h2 {
+            margin-top: 0;
+        }
+
+        /* Inhaltsverzeichnis */
+        #inhalt {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        #inhalt ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #inhalt a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: block;
+            padding: 6px 0;
+        }
+
+        #inhalt a:hover {
+            text-decoration: underline;
+        }
+</style>
+/* Aufklapp-Header – rosé-pink mit französischem Akzent */
+.fancy-header {
+    background: linear-gradient(90deg, #f9d6e2, #ffeef3);
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    border-left: 6px solid #0055a4; /* Blau */
+    border-right: 6px solid #ef4135; /* Rot */
+}
+
+/* Inhalt */
+.fancy-content {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 6px;
+    display: none;
+    border-top: 3px solid #0055a4;
+}
+
+/* Zurück-nach-oben Pfeil – rosé passend zum Banner */
+.back-top {
+    background: none;
+    border: none;
+    color: #ef7fa4; /* zartes Pink */
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+}
+
+.back-top:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Französisch</h1>
+    <nav>
+        <a href="index.html">Startseite</a>
+    </nav>
+</header>
+
+<!-- Banner -->
+<div class="hero-banner">
+    <img src="franzosisch.png" alt="Banner">
+</div>
+
+<div class="white-space"></div>
+
+<main>
+<div class="fancy-box">
+    <div class="fancy-header">COI & COD – Grammatik und Kommunikation</div>
+
+    <div class="fancy-content">
+
+        <!-- INHALTSVERZEICHNIS -->
+        <section id="inhalt">
+            <h2>Inhaltsverzeichnis</h2>
+            <ul>
+                <li><a href="#verben">Verben-Liste</a></li>
+                <li><a href="#grammatik">Grammatik – COI & COD</a></li>
+                <li><a href="#kommunikation">Kommunikation & Ausdruck</a></li>
+                <li><a href="#texte">Texte & Übungen</a></li>
+                <li><a href="#vokabeln">Vokabeln & Redewendungen</a></li>
+                <li><a href="#kultur">Kulturelle Aspekte</a></li>
+                <li><a href="#weitere">Weitere Inhalte folgen...</a></li>
+            </ul>
+        </section>
+    </div>
+</div>
+
