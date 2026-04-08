@@ -172,24 +172,71 @@
 <div class="white-space"></div>
 
 <main>
-<div class="fancy-box">
-    <div class="fancy-header">COI & COD – Grammatik und Kommunikation</div>
-
+    </ul><!-- Verben-Liste -->
+<div class="fancy-box" id="verben">
+    <div class="fancy-header">Verben-Liste</div>
     <div class="fancy-content">
-
-        <!-- INHALTSVERZEICHNIS -->
-        <section id="inhalt">
-            <h2>Inhaltsverzeichnis</h2>
-            <ul>
-                <li><a href="#verben">Verben-Liste</a></li>
-                <li><a href="#grammatik">Grammatik – COI & COD</a></li>
-                <li><a href="#kommunikation">Kommunikation & Ausdruck</a></li>
-                <li><a href="#texte">Texte & Übungen</a></li>
-                <li><a href="#vokabeln">Vokabeln & Redewendungen</a></li>
-                <li><a href="#kultur">Kulturelle Aspekte</a></li>
-                <li><a href="#weitere">Weitere Inhalte folgen...</a></li>
-            </ul>
-        </section>
+        <p>Hier kommen später die Verben rein.</p>
     </div>
 </div>
+
+<!-- Grammatik – COI & COD -->
+<div class="fancy-box" id="grammatik">
+    <div class="fancy-header">Grammatik – COI & COD</div>
+    <div class="fancy-content">
+        <p>Hier kommen später COI/COD-Erklärungen rein.</p>
+    </div>
+</div>
+
+<!-- Kommunikation & Ausdruck -->
+<div class="fancy-box" id="kommunikation">
+    <div class="fancy-header">Kommunikation & Ausdruck</div>
+    <div class="fancy-content">
+        <p>Hier kommen später Kommunikationsübungen rein.</p>
+    </div>
+</div>
+
+<!-- Texte & Übungen -->
+<div class="fancy-box" id="texte">
+    <div class="fancy-header">Texte & Übungen</div>
+    <div class="fancy-content">
+        <p>Hier kommen später Texte rein.</p>
+    </div>
+</div>
+
+<!-- Vokabeln & Redewendungen -->
+<div class="fancy-box" id="vokabeln">
+    <div class="fancy-header">Vokabeln & Redewendungen</div>
+    <div class="fancy-content">
+        <p>Hier kommen später Vokabeln rein.</p>
+    </div>
+</div>
+
+<!-- Kulturelle Aspekte -->
+<div class="fancy-box" id="kultur">
+    <div class="fancy-header">Kulturelle Aspekte</div>
+    <div class="fancy-content">
+        <p>Hier kommen später Kulturthemen rein.</p>
+    </div>
+</div>
+
+<!-- Weitere Inhalte -->
+<div class="fancy-box" id="weitere">
+    <div class="fancy-header">Weitere Inhalte folgen...</div>
+    <div class="fancy-content">
+        <p>Hier kommen später neue Kapitel rein.</p>
+    </div>
+</div>
+</main>
+<script>
+document.querySelectorAll(".fancy-header").forEach(header => {
+    header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        content.style.display =
+            content.style.display === "block" ? "none" : "block";
+    });
+});
+</script>
+</body>
+</html>
 
