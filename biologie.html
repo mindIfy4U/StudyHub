@@ -3,57 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Biologie – Study Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+
+        /* ---------- GLOBAL DARK MODE ---------- */
+        :root {
+            --bg: #f0f5ff;
+            --text: #111827;
+            --box-bg: #ffffff;
+            --header-bg: #e5e7eb;
+
+            /* Biologie-Farbe */
+            --bio-green: #4CAF50;
+            --bio-green-dark: #2e7d32;
+            --bio-light: #e8f5e9;
+        }
+
+        :root.dark {
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --box-bg: #1e293b;
+            --header-bg: #334155;
+        }
+
         body {
             margin: 0;
             font-family: system-ui, sans-serif;
-            background-color: #f0f5ff;
-            color: #111827;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
         }
 
-        /* Header */
+        /* ---------- HEADER ---------- */
         header {
-            background: #e5e7eb;
-            color: #111827;
+            background: var(--header-bg);
+            color: var(--text);
             padding: 18px 26px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 22px;
-        }
-
         nav a {
-            color: #111827;
+            color: var(--text);
             margin-left: 20px;
             text-decoration: none;
             font-size: 14px;
         }
 
-        /* Banner */
-        .hero-banner {
-            width: 100%;
-            background: white;
-            padding: 0;
-            text-align: center;
-            border-bottom: 3px solid #e0e0e0;
-            opacity: 0;
-            animation: fadeIn 1.2s ease-out forwards;
+        #darkToggle {
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 15px;
         }
 
+        /* ---------- BANNER ---------- */
         .hero-banner img {
             width: 100%;
-            max-width: none;
-            height: auto;
             display: block;
-            margin: 0;
-            border-radius: 0;
-            box-shadow: none;
-
+            opacity: 0;
+            animation: fadeIn 1.2s ease forwards;
         }
 
         @keyframes fadeIn {
@@ -63,49 +73,43 @@
 
         .white-space {
             height: 40px;
-            background: #f0f5ff;
         }
 
-        /* Hauptbereich */
-	main {
-    	max-width: 1100px;
-    	margin: 30px auto;
-    	padding: 30px 16px 40px;
-    	background: none;
-	}
-
-	/* Klappbox‑Design für Biologie */
-	details {
-    	border: 2px solid #4CAF50;
-    	border-radius: 8px;
-    	padding: 10px 14px;
-    	margin-bottom: 20px;
-	}
-
-	details summary {
-    	font-weight: 600;
-    	cursor: pointer;
-    	color: #2e7d32;
-	}
-
-
-
-        /* Kapitel */
-        section {
-            background: transparent;
-            padding: 20px 0;
-            margin-bottom: 0;
-            border: none;
-            box-shadow: none;
+        /* ---------- MAIN ---------- */
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 30px 16px 40px;
         }
 
-        section h2 {
-            margin-top: 0;
+        /* ---------- KLAPPBOXEN ---------- */
+        .fancy-box {
+            margin-bottom: 25px;
+            border-radius: 10px;
+            background: var(--box-bg);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* Inhaltsverzeichnis */
+        .fancy-header {
+            background: linear-gradient(90deg, var(--bio-light), #f3fbf4);
+            color: #000;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 24px;
+            border-left: 6px solid var(--bio-green);
+            border-right: 6px solid var(--bio-green-dark);
+        }
+
+        .fancy-content {
+            padding: 15px;
+            display: none;
+        }
+
+        /* ---------- INHALTSVERZEICHNIS ---------- */
         #inhalt {
-            background: #e8f5e9;
+            background: var(--bio-light);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 30px;
@@ -114,23 +118,21 @@
         #inhalt ul {
             list-style: none;
             padding-left: 0;
-            margin: 0;
         }
 
         #inhalt a {
-            color: #000000;
+            color: var(--text);
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
-            display: block;
             padding: 6px 0;
+            display: block;
         }
 
         #inhalt a:hover {
             text-decoration: underline;
         }
 
-        /* Zusammenfassungen */
+        /* ---------- ZUSAMMENFASSUNG ---------- */
         .summary {
             background-color: #f7f7f7;
             padding: 16px;
@@ -138,36 +140,16 @@
             margin: 20px 0;
         }
 
-/* Aufklapp-Header – hellgrüner Verlauf */
-.fancy-header {
-    background: linear-gradient(90deg, #e8f5e9, #f3fbf4);
-    color: #000;
-    padding: 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 24px;
-    letter-spacing: 0.5px;
-}
-.fancy-content {
-    background: #ffffff;
-    padding: 10px;
-    border-radius: 6px;
-    display: none;
-}
-/* Zurück-nach-oben Pfeil – hellgrün passend zum Banner */
-.back-top {
-    background: none;
-    border: none;
-    color: #6bbf72; /* schönes hellgrün, gut lesbar */
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0;
-}
+        /* ---------- NACH OBEN ---------- */
+        .back-to-top a {
+            color: var(--bio-green-dark);
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-.back-top:hover {
-    text-decoration: underline;
-}
+        .back-to-top a:hover {
+            text-decoration: underline;
+        }
 
     </style>
 </head>
@@ -178,10 +160,10 @@
     <h1>Biologie</h1>
     <nav>
         <a href="index.html">Startseite</a>
+        <span id="darkToggle">🌙</span>
     </nav>
 </header>
 
-<!-- Banner -->
 <div class="hero-banner">
     <img src="biologie.jpg" alt="Banner">
 </div>
@@ -189,6 +171,7 @@
 <div class="white-space"></div>
 
 <main>
+
 <div class="fancy-box">
     <div class="fancy-header">4 Ökologie</div>
 
@@ -306,16 +289,20 @@
             <p>Hier kommt dein Text hin.</p>
 	<div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
         </section>
-
     </div>
 </div>
 
 </main>
+
+<!-- GLOBAL DARK MODE -->
+<script src="darkmode.js"></script>
+
+<!-- KLAPPBOX SCRIPT -->
 <script>
 document.querySelectorAll('.fancy-header').forEach(header => {
     header.addEventListener('click', () => {
         const content = header.nextElementSibling;
-        content.style.display = 
+        content.style.display =
             content.style.display === 'block' ? 'none' : 'block';
     });
 });
