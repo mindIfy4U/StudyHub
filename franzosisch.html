@@ -122,6 +122,89 @@
             margin-top: 10px;
         }
 
+<style>
+  body {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  h1, h2, h3 {
+    font-size: 28px;
+  }
+</style>
+
+<style>
+  .exercise-box {
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin-top: 30px;
+  }
+  .feedback {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+</style>
+
+<h2>COD/COI Übung</h2>
+
+<div class="exercise-box">
+  <label>Schwierigkeitsgrad:</label><br>
+  <input type="range" id="level" min="1" max="3" value="1">
+  <span id="levelText">Einfach</span>
+
+  <p id="sentence">Ersetze: Je vois le chien.</p>
+
+  <input type="text" id="answer" placeholder="Deine Antwort">
+  <button onclick="checkAnswer()">Korrigieren</button>
+
+  <div id="feedback" class="feedback"></div>
+</div>
+
+<script>
+  const exercises = {
+    1: [
+      { s: "Je vois le chien.", a: "Je le vois.", reason: "COD → le chien → le" },
+      { s: "Tu manges la pomme.", a: "Tu la manges.", reason: "COD → la pomme → la" }
+    ],
+    2: [
+      { s: "Je parle à Marie.", a: "Je lui parle.", reason: "COI → à Marie → lui" },
+      { s: "Il pense à l’école.", a: "Il y pense.", reason: "COI → à l’école → y" }
+    ],
+    3: [
+      { s: "J’ai besoin d’une pause.", a: "J’en ai besoin.", reason: "COI → de + Nomen → en" },
+      { s: "J’achète trois pommes.", a: "J’en achète trois.", reason: "COD (Menge) → en" }
+    ]
+  };
+
+  let current = exercises[1][0];
+
+  document.getElementById("level").addEventListener("input", function() {
+    const lvl = this.value;
+    document.getElementById("levelText").textContent =
+      lvl == 1 ? "Einfach" : lvl == 2 ? "Mittel" : "Schwer";
+
+    current = exercises[lvl][Math.floor(Math.random() * exercises[lvl].length)];
+    document.getElementById("sentence").textContent = "Ersetze: " + current.s;
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("answer").value = "";
+  });
+
+  function checkAnswer() {
+    const user = document.getElementById("answer").value.trim();
+    const fb = document.getElementById("feedback");
+
+    if (user === current.a) {
+      fb.textContent = "Richtig! 🎉";
+      fb.style.color = "green";
+    } else {
+      fb.innerHTML = "Falsch ❌<br>Richtige Lösung: " + current.a +
+                     "<br>Grund: " + current.reason;
+      fb.style.color = "red";
+    }
+  }
+</script>
+
     </style>
 </head>
 
