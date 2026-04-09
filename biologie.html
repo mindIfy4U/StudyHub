@@ -108,50 +108,40 @@ main {
     line-height: 1.55;
 }
 
-/* ---------- INHALTSVERZEICHNIS BIOLOGIE (wie Chemie, nur grün) ---------- */
-#inhalt {
-    background: #e4f8e4; /* helles, sauberes, sichtbares Bio-Grün */
-    border: 1px solid #6ac96a; /* klarer, sichtbarer Rand */
-    padding: 14px 16px; /* exakt wie Chemie */
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 14px;
+/* Ruhiges Inhaltsverzeichnis – Biologie (1:1 wie Chemie, nur grün) */
+.toc-bio {
+    border: 1px solid #b6e8b6; /* dünne hellgrüne Linie */
+    background: #f3fff3; /* sehr helles Pastellgrün */
+    border-radius: 6px;
+    padding: 15px 18px;
+    margin: 20px 0;
 }
 
-/* Titel */
-#inhalt h2 {
-    font-size: 22px;
+.toc-bio h3 {
     margin-top: 0;
-    margin-bottom: 10px;
-    color: #2e6b2e; /* dunkles Bio-Grün */
-    font-weight: 700;
+    color: #000;
+    font-weight: bold;
 }
 
-/* Liste */
-#inhalt ul {
+.toc-bio ul {
     list-style: none;
     padding-left: 0;
-    margin: 0;
 }
 
-/* Einträge */
-#inhalt li {
-    margin: 4px 0;
+.toc-bio li {
+    margin: 6px 0;
+    font-size: 16px;
 }
 
-/* Links */
-#inhalt a {
-    color: #1f4d1f; /* gut lesbares Grün */
+.toc-bio a {
+    color: #000;
     text-decoration: none;
     font-weight: 500;
-    display: block;
-    padding: 3px 0;
 }
 
-#inhalt a:hover {
+.toc-bio a:hover {
     text-decoration: underline;
 }
-
 
         /* ---------- ZUSAMMENFASSUNG ---------- */
         .summary {
@@ -202,7 +192,7 @@ main {
     <div class="fancy-content">
 
         <!-- INHALTSVERZEICHNIS -->
-        <section id="inhalt">
+        <div class="toc-bio">
             <h2>Inhaltsverzeichnis - Kapitel 4</h2>
             <ul>
                 <li><a href="#k41">4.1 Ökologie – Lebewesen und ihre Umwelt</a></li>
