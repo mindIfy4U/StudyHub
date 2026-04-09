@@ -4,18 +4,37 @@
     <meta charset="UTF-8">
     <title>Französisch – Study Hub</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
+        /* ---------- BASIS ---------- */
         body {
             margin: 0;
             font-family: system-ui, sans-serif;
-            background-color: #f0f5ff;
-            color: #111827;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
         }
 
-        /* Header */
+        :root {
+            --bg: #f0f5ff;
+            --text: #111827;
+            --box-bg: #ffffff;
+            --header-bg: #e5e7eb;
+        }
+
+        /* Dark Mode */
+        body.dark {
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --box-bg: #1e293b;
+            --header-bg: #334155;
+        }
+
+        /* ---------- HEADER ---------- */
         header {
-            background: #e5e7eb;
-            color: #111827;
+            background: var(--header-bg);
+            color: var(--text);
             padding: 18px 26px;
             display: flex;
             justify-content: space-between;
@@ -28,137 +47,92 @@
         }
 
         nav a {
-            color: #111827;
+            color: var(--text);
             margin-left: 20px;
             text-decoration: none;
             font-size: 14px;
         }
 
-        /* Banner */
-        .hero-banner {
-            width: 100%;
-            background: white;
-            padding: 0;
-            text-align: center;
-            border-bottom: 3px solid #e0e0e0;
-            opacity: 0;
-            animation: fadeIn 1.2s ease-out forwards;
+        /* Dark Mode Button */
+        #darkToggle {
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 15px;
         }
 
+        /* ---------- BANNER ---------- */
         .hero-banner img {
             width: 100%;
-            max-width: none;
-            height: auto;
             display: block;
-            margin: 0;
-            border-radius: 0;
-            box-shadow: none;
-
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-15px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .white-space {
             height: 40px;
-            background: #f0f5ff;
         }
 
-        /* Hauptbereich */
+        /* ---------- MAIN ---------- */
         main {
             max-width: 900px;
             margin: 30px auto;
             padding: 30px 16px 40px;
-            background: white;
+            background: var(--box-bg);
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.06);
         }
 
-        /* Kapitel */
-        section {
-            background: transparent;
-            padding: 20px 0;
-            margin-bottom: 0;
+        /* ---------- BOXEN ---------- */
+        .fancy-box {
+            margin-bottom: 25px;
+            border-radius: 10px;
+            background: var(--box-bg);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .fancy-header {
+            background: linear-gradient(90deg, #f9d6e2, #ffeef3);
+            color: #000;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 24px;
+            border-left: 6px solid #0055a4;
+            border-right: 6px solid #ef4135;
+        }
+
+        .fancy-content {
+            padding: 15px;
+            display: none;
+        }
+
+        /* ---------- TRAINER ---------- */
+        #trainerArea input,
+        #trainerArea select,
+        #trainerArea button {
+            padding: 10px;
+            margin: 6px 0;
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        #trainerArea button {
+            background: #0055a4;
+            color: white;
             border: none;
-            box-shadow: none;
+            cursor: pointer;
         }
 
-        section h2 {
-            margin-top: 0;
+        #trainerArea button:hover {
+            background: #003f7d;
         }
 
-        /* Inhaltsverzeichnis */
-	#inhalt {
-    	background: linear-gradient(90deg, #ffe6f0, #fff2f7);
-    	padding: 20px;
-    	border-radius: 10px;
-    	margin-bottom: 30px;
-	}
-
-
-        #inhalt ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
+        #score {
+            font-weight: bold;
+            margin-top: 10px;
         }
 
-        #inhalt a {
-            color: #000000;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            display: block;
-            padding: 6px 0;
-        }
-
-        #inhalt a:hover {
-            text-decoration: underline;
-        }
-
-/* Aufklapp-Header – rosé-pink mit französischem Akzent */
-.fancy-header {
-    background: linear-gradient(90deg, #f9d6e2, #ffeef3);
-    color: #000;
-    padding: 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 24px;
-    letter-spacing: 0.5px;
-    border-left: 6px solid #0055a4; /* Blau */
-    border-right: 6px solid #ef4135; /* Rot */
-}
-
-/* Inhalt */
-.fancy-content {
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 6px;
-    display: none;
-    border-top: 3px solid #0055a4;
-}
- .fancy-box {
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* Zurück-nach-oben Pfeil – rosé passend zum Banner */
-.back-top {
-    background: none;
-    border: none;
-    color: #ef7fa4; /* zartes Pink */
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0;
-}
-
-.back-top:hover {
-    text-decoration: underline;
-}
-</style>
+    </style>
 </head>
 
 <body>
@@ -166,262 +140,83 @@
 <header>
     <h1>Französisch</h1>
     <nav>
-        <a href="index.html">Startseite</a>
+        <a href="#pdf">PDF</a>
+        <a href="#trainer">Trainer</a>
+        <a href="#grammatik">Grammatik</a>
+        <span id="darkToggle">🌙</span>
     </nav>
 </header>
 
-<!-- Banner -->
 <div class="hero-banner">
     <img src="franzosisch.png" alt="Banner">
 </div>
 
 <div class="white-space"></div>
 
-<main>  
-</ul><!-- Verben-Liste -->
-<div class="fancy-box" id="verben">
-    <div class="fancy-header">Verben-Liste</div>
+<main>
+
+<!-- PDF-Bereich -->
+<div class="fancy-box" id="pdf">
+    <div class="fancy-header">Verbenliste (PDF)</div>
     <div class="fancy-content">
-        
-<!-- INHALTSVERZEICHNIS -->
-<div id="inhalt" style="margin-bottom: 25px;">
-    <h2>Inhaltsverzeichnis – Verben</h2>
-    <ul>
-        <li><a href="#regelmaessige-er">Regelmässige -er-Verben</a></li>
-        <li><a href="#regelmaessige-ir">Regelmässige -ir-Verben</a></li>
-        <li><a href="#regelmaessige-re">Regelmässige -re-Verben</a></li>
-        <li><a href="#unregelmaessige">Unregelmässige Verben</a></li>
-        <li><a href="#sonderformen">Sonderformen (être, avoir, aller, faire)</a></li>
-    </ul>
+        <p>
+            <a href="Franzosisch_verben_liste.pdf" target="_blank">
+                📄 Verbenliste als PDF öffnen
+            </a>
+        </p>
+    </div>
 </div>
 
+<!-- PREMIUM VERBTRAINER -->
+<div class="fancy-box" id="trainer">
+    <div class="fancy-header">Premium Verbtrainer</div>
+    <div class="fancy-content" id="trainerArea">
 
-<h2>Regelmässige -er-Verben</a></h2>
-        <!-- Bild -->
-        <div style="margin-bottom: 20px;">
-            <img src="verben_er.jpg" alt="Konjugation von habiter" style="max-width:100%; height:auto;">
+        <label>Modus:</label>
+        <select id="modeSelect">
+            <option value="learn">Lernen</option>
+            <option value="custom">Eigene Auswahl</option>
+            <option value="test">Testmodus</option>
+            <option value="random">Zufall</option>
+        </select>
+
+        <label>
+            <input type="checkbox" id="showTranslation" checked>
+            Übersetzung anzeigen
+        </label>
+
+        <h3>Zeitformen</h3>
+        <label><input type="checkbox" class="tense" value="present" checked> Présent</label>
+        <label><input type="checkbox" class="tense" value="imparfait"> Imparfait</label>
+        <label><input type="checkbox" class="tense" value="pc"> Passé composé</label>
+        <label><input type="checkbox" class="tense" value="futur"> Futur simple</label>
+
+        <h3>Personen</h3>
+        <label><input type="checkbox" class="person" value="je" checked> je</label>
+        <label><input type="checkbox" class="person" value="tu"> tu</label>
+        <label><input type="checkbox" class="person" value="il"> il/elle/on</label>
+        <label><input type="checkbox" class="person" value="nous"> nous</label>
+        <label><input type="checkbox" class="person" value="vous"> vous</label>
+        <label><input type="checkbox" class="person" value="ils"> ils/elles</label>
+
+        <button id="startExercise">Start</button>
+
+        <hr>
+
+        <div id="exerciseArea" style="display:none;">
+            <p id="question"></p>
+            <input type="text" id="answerInput" placeholder="Deine Antwort...">
+            <button id="checkAnswer">Prüfen</button>
+
+            <p id="feedback"></p>
+            <p id="translation"></p>
+            <p id="score"></p>
         </div>
 
-        <!-- Erklärung -->
-        <p>
-            Alle regelmässigen Verben auf <strong>-er</strong> werden wie <strong>habiter</strong> (wohnen) konjugiert.  
-            Die Endungen bleiben immer gleich – nur der Wortstamm ändert sich.
-        </p>
-
-        <!-- Liste -->
-        <h3>Wichtige regelmässige -er-Verben</h3>
-
-        <ul>
-            <li>aimer – lieben, mögen</li>
-            <li>parler – sprechen</li>
-            <li>habiter – wohnen</li>
-            <li>regarder – schauen</li>
-            <li>écouter – zuhören</li>
-            <li>travailler – arbeiten</li>
-            <li>jouer – spielen</li>
-            <li>penser – denken</li>
-            <li>trouver – finden</li>
-            <li>chercher – suchen</li>
-            <li>donner – geben</li>
-            <li>demander – fragen</li>
-            <li>appeler – rufen</li>
-            <li>arriver – ankommen</li>
-            <li>entrer – hineingehen</li>
-            <li>rester – bleiben</li>
-            <li>tomber – fallen</li>
-            <li>porter – tragen</li>
-            <li>marcher – gehen</li>
-            <li>étudier – lernen</li>
-            <li>expliquer – erklären</li>
-            <li>corriger – korrigieren</li>
-            <li>noter – benoten</li>
-            <li>répéter – wiederholen</li>
-            <li>chanter – singen</li>
-            <li>danser – tanzen</li>
-            <li>dessiner – zeichnen</li>
-            <li>téléphoner – telefonieren</li>
-            <li>inviter – einladen</li>
-            <li>visiter – besichtigen</li>
-            <li>voyager – reisen</li>
-            <li>adorer – sehr mögen</li>
-            <li>détester – hassen</li>
-            <li>rêver – träumen</li>
-            <li>imaginer – sich vorstellen</li>
-            <li>laver – waschen</li>
-            <li>préparer – vorbereiten</li>
-            <li>cuisiner – kochen</li>
-            <li>fermer – schliessen</li>
-        </ul>
-
-    </div>
-</div>
-<h2>Regelmässige -ir-Verben</a></h2>
-        <!-- Erklärung -->
-        <p>
-            Regelmässige Verben auf <strong>-ir</strong> folgen dem Muster von <strong>finir</strong>.  
-            Im Présent haben sie die Endungen: <strong>-is, -is, -it, -issons, -issez, -issent</strong>.  
-            Alle anderen Zeiten werden regelmässig gebildet.
-        </p>
-
-        <!-- Beispielkonjugation finir -->
-        <h3>Beispiel: finir – beenden</h3>
-
-        <p><strong>Présent</strong><br>
-        je finis<br>
-        tu finis<br>
-        il/elle/on finit<br>
-        nous finissons<br>
-        vous finissez<br>
-        ils/elles finissent</p>
-
-        <p><strong>Imparfait</strong><br>
-        je finissais<br>
-        tu finissais<br>
-        il/elle/on finissait<br>
-        nous finissions<br>
-        vous finissiez<br>
-        ils/elles finissaient</p>
-
-        <p><strong>Passé composé</strong><br>
-        j’ai fini</p>
-
-        <p><strong>Plus-que-parfait</strong><br>
-        j’avais fini</p>
-
-        <!-- Liste der 40 regelmäßigen -ir-Verben -->
-        <h3>Wichtige regelmässige -ir-Verben</h3>
-
-        <ul>
-            <li>finir – beenden</li>
-            <li>choisir – wählen</li>
-            <li>réussir – Erfolg haben</li>
-            <li>grandir – wachsen</li>
-            <li>rougir – erröten</li>
-            <li>maigrir – abnehmen</li>
-            <li>grossir – zunehmen</li>
-            <li>punir – bestrafen</li>
-            <li>réfléchir – nachdenken</li>
-            <li>agir – handeln</li>
-            <li>obéir – gehorchen</li>
-            <li>remplir – füllen</li>
-            <li>unir – vereinen</li>
-            <li>applaudir – applaudieren</li>
-            <li>établir – festlegen</li>
-            <li>nourrir – ernähren</li>
-            <li>vieillir – altern</li>
-            <li>ralentir – verlangsamen</li>
-            <li>avertir – warnen</li>
-            <li>guérir – heilen</li>
-            <li>investir – investieren</li>
-            <li>fleurir – blühen</li>
-            <li>réunir – versammeln</li>
-            <li>convertir – umwandeln</li>
-            <li>franchir – überqueren</li>
-            <li>envahir – überfallen/einfallen</li>
-            <li>étourdir – benommen machen</li>
-            <li>grossir – dicker werden</li>
-            <li>mincir – schlanker werden</li>
-            <li>répartir – verteilen</li>
-            <li>rôtir – rösten</li>
-            <li>bondir – springen</li>
-            <li>blanchir – bleichen</li>
-            <li>durcir – härten</li>
-            <li>financer – finanzieren</li>
-            <li>pâlir – erblassen</li>
-            <li>salir – schmutzig machen</li>
-            <li>embellir – verschönern</li>
-            <li>raffermir – festigen</li>
-            <li>rétrécir – schrumpfen</li>
-        </ul>
-
-    </div>
-</div>
-<h2>Regelmässige -re-Verben</a></h2>
-        <!-- Erklärung -->
-        <p>
-            Regelmässige Verben auf <strong>-re</strong> bilden ihren Stamm, indem man <strong>-re</strong> entfernt.  
-            Im Présent enden sie auf: <strong>-s, -s, (nichts), -ons, -ez, -ent</strong>.  
-            Beispiel: <strong>attendre</strong> → j’attends, tu attends, il attend.
-        </p>
-
-        <!-- Beispielkonjugation attendre -->
-        <h3>Beispiel: attendre – warten</h3>
-
-        <p><strong>Présent</strong><br>
-        j’attends<br>
-        tu attends<br>
-        il/elle/on attend<br>
-        nous attendons<br>
-        vous attendez<br>
-        ils/elles attendent</p>
-
-        <p><strong>Imparfait</strong><br>
-        j’attendais<br>
-        tu attendais<br>
-        il/elle/on attendait<br>
-        nous attendions<br>
-        vous attendiez<br>
-        ils/elles attendaient</p>
-
-        <p><strong>Passé composé</strong><br>
-        j’ai attendu</p>
-
-        <p><strong>Plus-que-parfait</strong><br>
-        j’avais attendu</p>
-
-        <!-- Liste der regelmässigen -re-Verben -->
-        <h3>40 wichtige regelmässige -re-Verben</h3>
-
-        <ul>
-            <li>attendre – warten</li>
-            <li>vendre – verkaufen</li>
-            <li>perdre – verlieren</li>
-            <li>répondre – antworten</li>
-            <li>entendre – hören</li>
-            <li>défendre – verteidigen</li>
-            <li>descendre – hinuntergehen</li>
-            <li>rendre – zurückgeben</li>
-            <li>fondre – schmelzen</li>
-            <li>mordre – beißen</li>
-            <li>tendre – spannen</li>
-            <li>confondre – verwechseln</li>
-            <li>correspondre – entsprechen</li>
-            <li>pendre – hängen</li>
-            <li>répandre – verbreiten</li>
-            <li>réduire – reduzieren</li>
-            <li>conduire – fahren (halbregelmässig)</li>
-            <li>produire – produzieren</li>
-            <li>traduire – übersetzen</li>
-            <li>cuire – kochen</li>
-            <li>inclure – einschliessen</li>
-            <li>conclure – abschliessen</li>
-            <li>rompre – brechen</li>
-            <li>interrompre – unterbrechen</li>
-            <li>coudre – nähen</li>
-            <li>tordre – drehen</li>
-            <li>surprendre – überraschen</li>
-            <li>reprendre – wieder aufnehmen</li>
-            <li>comprendre – verstehen</li>
-            <li>apprendre – lernen</li>
-            <li>atteindre – erreichen</li>
-            <li>craindre – fürchten</li>
-            <li>peindre – malen</li>
-            <li>joindre – verbinden</li>
-            <li>plaindre – beklagen</li>
-            <li>éteindre – ausschalten</li>
-            <li>restreindre – einschränken</li>
-            <li>astreindre – verpflichten</li>
-            <li>teindre – färben</li>
-            <li>feindre – vortäuschen</li>
-        </ul>
-
     </div>
 </div>
 
-    </div>
-</div>
-
-<!-- Grammatik – COI & COD -->
+<!-- Deine anderen Boxen bleiben unverändert -->
 <div class="fancy-box" id="grammatik">
     <div class="fancy-header">Grammatik – COI & COD</div>
     <div class="fancy-content">
@@ -429,7 +224,6 @@
     </div>
 </div>
 
-<!-- Kommunikation & Ausdruck -->
 <div class="fancy-box" id="kommunikation">
     <div class="fancy-header">Kommunikation & Ausdruck</div>
     <div class="fancy-content">
@@ -437,7 +231,6 @@
     </div>
 </div>
 
-<!-- Texte & Übungen -->
 <div class="fancy-box" id="texte">
     <div class="fancy-header">Texte & Übungen</div>
     <div class="fancy-content">
@@ -445,7 +238,6 @@
     </div>
 </div>
 
-<!-- Vokabeln & Redewendungen -->
 <div class="fancy-box" id="vokabeln">
     <div class="fancy-header">Vokabeln & Redewendungen</div>
     <div class="fancy-content">
@@ -453,7 +245,6 @@
     </div>
 </div>
 
-<!-- Kulturelle Aspekte -->
 <div class="fancy-box" id="kultur">
     <div class="fancy-header">Kulturelle Aspekte</div>
     <div class="fancy-content">
@@ -461,15 +252,13 @@
     </div>
 </div>
 
-<!-- Weitere Inhalte -->
-<div class="fancy-box" id="weitere">
-    <div class="fancy-header">Weitere Inhalte folgen...</div>
-    <div class="fancy-content">
-        <p>Hier kommen später neue Kapitel rein.</p>
-    </div>
-</div>
 </main>
+
+<script src="verbs.js"></script>
+<script src="trainer.js"></script>
+
 <script>
+/* Aufklappboxen */
 document.querySelectorAll(".fancy-header").forEach(header => {
     header.addEventListener("click", () => {
         const content = header.nextElementSibling;
@@ -477,7 +266,20 @@ document.querySelectorAll(".fancy-header").forEach(header => {
             content.style.display === "block" ? "none" : "block";
     });
 });
+
+/* Dark Mode */
+const toggle = document.getElementById("darkToggle");
+toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+});
+
+/* Automatischer Dark Mode */
+if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.body.classList.add("dark");
+    toggle.textContent = "☀️";
+}
 </script>
+
 </body>
 </html>
-
