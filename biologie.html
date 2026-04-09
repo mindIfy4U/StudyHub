@@ -108,39 +108,42 @@ main {
     line-height: 1.55;
 }
 
-/* Ruhiges Inhaltsverzeichnis – Biologie */
-.toc-bio {
+/* ---------- INHALTSVERZEICHNIS BIOLOGIE ---------- */
+#inhalt {
+    background: rgba(76, 175, 80, 0.08); /* sehr helles Pastell-Neon-Grün */
     border: 1px solid #6ccf6c; /* dünne grüne Linie */
-    background: #eaffea; /* sehr helles Pastell-Neon-Grün */
-    border-radius: 6px;
-    padding: 18px 22px; /* grösserer Abstand vom Rand */
-    margin: 25px 0; /* mehr Abstand nach aussen */
+    padding: 18px 22px; /* größerer Abstand vom Rand */
+    border-radius: 8px;
+    margin: 25px 0; /* mehr Abstand nach außen */
+    font-size: 14px;
 }
 
-.toc-bio h3 {
+#inhalt h2 {
+    font-size: 22px;
     margin-top: 0;
-    color: #003300; /* dunkles Grün für Biologie */
-    font-weight: bold;
+    color: #003300; /* dunkles Grün */
 }
 
-.toc-bio ul {
+#inhalt ul {
     list-style: none;
     padding-left: 0;
 }
 
-.toc-bio li {
-    margin: 6px 0;
-    font-size: 16px;
-}
-
-.toc-bio a {
-    color: #003300;
+#inhalt a {
+    color: var(--text);
     text-decoration: none;
-    font-weight: 500;
+    padding: 4px 0;
+    display: block;
+    font-size: 14px;
 }
 
-.toc-bio a:hover {
+#inhalt a:hover {
     text-decoration: underline;
+}
+
+/* Optional: Abstand für Sections */
+section {
+    padding-left: 10px;
 }
         /* ---------- ZUSAMMENFASSUNG ---------- */
         .summary {
