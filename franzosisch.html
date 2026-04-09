@@ -3,19 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Französisch – Study Hub</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        /* ---------- BASIS ---------- */
-        body {
-            margin: 0;
-            font-family: system-ui, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            transition: background 0.3s, color 0.3s;
-        }
 
+        /* ---------- GLOBAL DARK MODE ---------- */
         :root {
             --bg: #f0f5ff;
             --text: #111827;
@@ -23,12 +15,19 @@
             --header-bg: #e5e7eb;
         }
 
-        /* Dark Mode */
-        body.dark {
+        :root.dark {
             --bg: #0f172a;
             --text: #f1f5f9;
             --box-bg: #1e293b;
             --header-bg: #334155;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
         }
 
         /* ---------- HEADER ---------- */
@@ -41,11 +40,6 @@
             align-items: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 22px;
-        }
-
         nav a {
             color: var(--text);
             margin-left: 20px;
@@ -53,7 +47,6 @@
             font-size: 14px;
         }
 
-        /* Dark Mode Button */
         #darkToggle {
             cursor: pointer;
             font-size: 20px;
@@ -71,14 +64,11 @@
         }
 
         /* ---------- MAIN ---------- */
-	main {
-    	max-width: 1100px;
-    	margin: 30px auto;
-    	padding: 30px 16px 40px;
-    	background: none;
-	}
-
-
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 30px 16px 40px;
+        }
 
         /* ---------- BOXEN ---------- */
         .fancy-box {
@@ -175,9 +165,7 @@
         <label>Modus:</label>
         <select id="modeSelect">
             <option value="learn">Lernen</option>
-            <option value="custom">Eigene Auswahl</option>
             <option value="test">Testmodus</option>
-            <option value="random">Zufall</option>
         </select>
 
         <label>
@@ -216,39 +204,11 @@
     </div>
 </div>
 
-<!-- Deine anderen Boxen bleiben unverändert -->
+<!-- Andere Boxen -->
 <div class="fancy-box" id="grammatik">
     <div class="fancy-header">Grammatik – COI & COD</div>
     <div class="fancy-content">
         <p>Hier kommen später COI/COD-Erklärungen rein.</p>
-    </div>
-</div>
-
-<div class="fancy-box" id="kommunikation">
-    <div class="fancy-header">Kommunikation & Ausdruck</div>
-    <div class="fancy-content">
-        <p>Hier kommen später Kommunikationsübungen rein.</p>
-    </div>
-</div>
-
-<div class="fancy-box" id="texte">
-    <div class="fancy-header">Texte & Übungen</div>
-    <div class="fancy-content">
-        <p>Hier kommen später Texte rein.</p>
-    </div>
-</div>
-
-<div class="fancy-box" id="vokabeln">
-    <div class="fancy-header">Vokabeln & Redewendungen</div>
-    <div class="fancy-content">
-        <p>Hier kommen später Vokabeln rein.</p>
-    </div>
-</div>
-
-<div class="fancy-box" id="kultur">
-    <div class="fancy-header">Kulturelle Aspekte</div>
-    <div class="fancy-content">
-        <p>Hier kommen später Kulturthemen rein.</p>
     </div>
 </div>
 
@@ -267,16 +227,18 @@ document.querySelectorAll(".fancy-header").forEach(header => {
     });
 });
 
-/* Dark Mode */
+/* ---------- GLOBAL DARK MODE ---------- */
 const toggle = document.getElementById("darkToggle");
+
+/* Manuelles Umschalten */
 toggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    document.documentElement.classList.toggle("dark");
+    toggle.textContent = document.documentElement.classList.contains("dark") ? "☀️" : "🌙";
 });
 
 /* Automatischer Dark Mode */
 if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    document.body.classList.add("dark");
+    document.documentElement.classList.add("dark");
     toggle.textContent = "☀️";
 }
 </script>
