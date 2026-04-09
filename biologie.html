@@ -14,10 +14,10 @@
             --box-bg: #ffffff;
             --header-bg: #e5e7eb;
 
-            /* Biologie-Farbe */
+            /* Biologie-Farben */
             --bio-green: #4CAF50;
             --bio-green-dark: #2e7d32;
-            --bio-light: #e8f5e9;
+            --bio-light: rgba(76, 175, 80, 0.12); /* sehr helles Grün */
         }
 
         :root.dark {
@@ -39,7 +39,7 @@
         header {
             background: var(--header-bg);
             color: var(--text);
-            padding: 18px 26px;
+            padding: 16px 22px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -47,7 +47,7 @@
 
         nav a {
             color: var(--text);
-            margin-left: 20px;
+            margin-left: 16px;
             text-decoration: none;
             font-size: 14px;
         }
@@ -55,7 +55,7 @@
         #darkToggle {
             cursor: pointer;
             font-size: 20px;
-            margin-left: 15px;
+            margin-left: 12px;
         }
 
         /* ---------- BANNER ---------- */
@@ -72,47 +72,53 @@
         }
 
         .white-space {
-            height: 40px;
+            height: 30px;
         }
 
         /* ---------- MAIN ---------- */
         main {
             max-width: 1100px;
-            margin: 30px auto;
-            padding: 30px 16px 40px;
+            margin: 20px auto;
+            padding: 0 16px 40px;
         }
 
-        /* ---------- KLAPPBOXEN ---------- */
+        /* ---------- KLAPPBOX ---------- */
         .fancy-box {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border-radius: 10px;
             background: var(--box-bg);
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .fancy-header {
-            background: linear-gradient(90deg, var(--bio-light), #f3fbf4);
-            color: #000;
-            padding: 20px;
+            background: linear-gradient(90deg, #e8f5e9, #f3fbf4);
+            padding: 14px 16px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 700;
-            font-size: 24px;
-            border-left: 6px solid var(--bio-green);
-            border-right: 6px solid var(--bio-green-dark);
+            font-size: 18px;
+            border-left: 4px solid var(--bio-green);
+            border-right: 4px solid var(--bio-green-dark);
         }
 
         .fancy-content {
-            padding: 15px;
+            padding: 12px;
             display: none;
+            font-size: 15px;
         }
 
         /* ---------- INHALTSVERZEICHNIS ---------- */
         #inhalt {
             background: var(--bio-light);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
+            padding: 14px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        #inhalt h2 {
+            font-size: 18px;
+            margin-top: 0;
         }
 
         #inhalt ul {
@@ -123,9 +129,9 @@
         #inhalt a {
             color: var(--text);
             text-decoration: none;
-            font-weight: 600;
-            padding: 6px 0;
+            padding: 4px 0;
             display: block;
+            font-size: 14px;
         }
 
         #inhalt a:hover {
@@ -134,10 +140,12 @@
 
         /* ---------- ZUSAMMENFASSUNG ---------- */
         .summary {
-            background-color: #f7f7f7;
-            padding: 16px;
+            background-color: #ffffff; /* weiß */
+            border: 1px solid #e0e0e0;
+            padding: 12px;
             border-radius: 6px;
-            margin: 20px 0;
+            margin: 16px 0;
+            font-size: 14px;
         }
 
         /* ---------- NACH OBEN ---------- */
@@ -145,6 +153,7 @@
             color: var(--bio-green-dark);
             font-weight: bold;
             text-decoration: none;
+            font-size: 14px;
         }
 
         .back-to-top a:hover {
@@ -194,34 +203,39 @@
             </ul>
         </section>
 
-        <!-- 4.1 -->
+               <!-- 4.1 -->
         <section id="k41">
             <h2>4.1 Ökologie – Lebewesen und ihre Umwelt</h2>
-            <p>Ökologie beschreibt das Zusammenspiel aller Lebewesen und ihrer Umwelt…</p>
+            <p>**Was genau ist die Ökologie?**
+	Ökologie beschreibt das Zusammenspiel aller Lebewesen und ihrer Umwelt. Man kann es sich wie eine Waage vorstellen, bei 	der auf beiden Seiten gleich viel Gewicht liegt. Dieses Gleichgewicht sorgt dafür, dass die Natur funktioniert. Wenn man 	etwas an dieser Waage verändert – zum Beispiel Gewicht entfernt oder hinzufügt – gerät alles aus dem Gleichgewicht. 	Genauso ist es in der Natur: Wenn ein wichtiges Tier wie der Wolf fast ausstirbt, fehlt den Rehen ihr natürlicher Feind. 	Dadurch vermehren sie sich stärker, fressen mehr Pflanzen und bringen das gesamte Gleichgewicht der Natur durcheinander. 	Ausserdem untersucht die Ökologie, wie Energie und Nährstoffe in einem Ökosystem weitergegeben werden. Deshalb wird sie 	auch als die Lehre der Umwelt bezeichnet – sozusagen die Verhaltensregeln der Natur.</p>
 
             <div class="summary">
                 <strong>Zusammengefasst:</strong>
                 <ul>
                     <li>Ökologie = Zusammenspiel von Lebewesen und Umwelt</li>
                     <li>Natur funktioniert wie eine Waage → braucht Gleichgewicht</li>
-                    <li>Eingriffe stören das Gleichgewicht</li>
-                    <li>Energie- und Nährstofffluss im Ökosystem</li>
-                    <li>Ökologie = Lehre der Umwelt</li>
+                    <li>Eingriffe stören das Gleichgewicht (z. B. Wolf fehlt → Rehe vermehren sich → Pflanzen werden weniger)    		    </li>
+                    <li>Energie und Nährstoffe werden im Ökosystem weitergegeben</li>
+                    <li>Ökologie = Lehre der Umwelt oder „Verhaltensregeln der Natur“</li>
                 </ul>
             </div>
 
-            <h3>Die unerwünschte Kröte in Australien</h3>
-            <p>1935 wurden Aga-Kröten aus Südamerika nach Australien gebracht…</p>
+     <h3>Die unerwünschte Kröte in Australien</h3>
+     <p>1935 wurden Aga-Kröten aus Südamerika nach Australien gebracht, um Schädlinge in Zuckerrohrfeldern zu bekämpfen. 	Doch die Idee ging schief: Die Kröten vermehrten sich schnell, breiteten sich über grosse Teile des Landes aus und wurden 	selbst zum Problem. Heute gibt es schätzungsweise über 1,5 Milliarden Kröten. Sie verdrängen heimische Arten, sind giftig 	für viele Tiere und stören das ökologische Gleichgewicht.
+	Eine Aga-Kröte kann pro Jahr rund 35'000 Eier legen und sich dadurch extrem schnell vermehren. Zusätzlich ist ihr Gift 	für viele heimische Tiere wie Hasen oder Füchse lebensgefährlich. Wenn diese Tiere die Kröte fressen oder mit ihrem Gift 	in Kontakt kommen, können sie daran sterben. Dadurch geraten viele einheimische Tierarten unter Druck und das gesamte 	Ökosystem wird geschwächt.
+	Doch die Aga-Kröte ist nur eine von vielen eingeschleppten Arten in Australien. Auch Hasen, Füchse, Katzen oder Dromedare 	wurden von Siedlern ausgesetzt und bedrohen heute die empfindliche Flora und Fauna. Weil Australiens Ökosystem sehr 	fragil ist, können sich einheimische Arten kaum gegen solche Eindringlinge durchsetzen. Das zeigt, wie komplex Ökosysteme 	sind und dass Eingriffe des Menschen nur mit grosser Vorsicht erfolgen sollten, da sie unerwartete und oft schädliche 	Folgen haben können.</p>
 
             <div class="summary">
                 <strong>Zusammengefasst:</strong>
                 <ul>
-                    <li>Aga‑Kröten wurden 1935 eingeschleppt</li>
-                    <li>Sie vermehrten sich extrem stark</li>
-                    <li>Heute über 1,5 Milliarden Tiere</li>
-                    <li>Giftig für viele einheimische Arten</li>
-                    <li>Stören das ökologische Gleichgewicht</li>
-                    <li>Beispiel für Folgen menschlicher Eingriffe</li>
+                    <li>Aga‑Kröten wurden 1935 nach Australien gebracht, um Schädlinge zu bekämpfen.</li>
+                    <li>Sie vermehrten sich stark und wurden selbst zum Problem.</li>
+                    <li>Heute leben über 1,5 Milliarden Kröten dort.</li>
+                    <li>Sie sind giftig und gefährlich für viele heimische Tiere.</li>
+                    <li>Eine Kröte legt ca. 35'000 Eier pro Jahr.</li>
+		    <li>Sie verdrängen einheimische Arten und stören das Gleichgewicht.</li>
+		    <li>Auch andere eingeschleppte Tiere bedrohen Australiens Natur.</li>
+                    <li>Das zeigt: Ökosysteme sind empfindlich und Eingriffe können grosse Folgen haben</li>
                 </ul>
             </div>
 	<div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
@@ -282,13 +296,6 @@
             <p>Hier kommt dein Text hin.</p
 	<div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
         </section>
-
-        <!-- 4.10 -->
-        <section id="k410">
-            <h2>4.10 Biotische Umweltfaktoren</h2>
-            <p>Hier kommt dein Text hin.</p>
-	<div class="back-to-top"><a href="#inhalt">⬆ Nach oben</a></div>
-        </section>
     </div>
 </div>
 
@@ -310,3 +317,4 @@ document.querySelectorAll('.fancy-header').forEach(header => {
 
 </body>
 </html>
+
