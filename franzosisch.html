@@ -130,9 +130,7 @@
   h1, h2, h3 {
     font-size: 28px;
   }
-</style>
 
-<style>
   .exercise-box {
     border: 2px solid #ccc;
     padding: 20px;
@@ -145,10 +143,33 @@
     font-weight: bold;
   }
 
+.floating-home-text {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4a90e2;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.2s;
+  z-index: 9999; /* bleibt über allem */
+}
+
+.floating-home-text:hover {
+  background: #357ac8;
+  transform: scale(1.05);
+}
+
     </style>
 </head>
 
 <body>
+
+<a href="index.html" class="floating-home-text">Startseite</a>
 
 <header>
     <h1>Französisch</h1>
@@ -233,123 +254,227 @@
     <div class="fancy-content">
         <p><h1>COD & COI</h1>
 
-<h2>COD = Complément d’objet direct</h2>
-<p>
-→ <strong>direktes Objekt</strong><br>
-→ <strong>Akkusativ</strong> (wen/was?)<br><br>
-Der COD bekommt <strong>keine Präposition</strong> davor.
-</p>
-
-<h3>Beispiele:</h3>
-<ul>
-  <li>Je vois <strong>le chien</strong>. → Ich sehe <strong>den Hund</strong>.</li>
-  <li>Tu manges <strong>la pomme</strong>. → Du isst <strong>den Apfel</strong>.</li>
-</ul>
-
-<h3>Pronomen:</h3>
-<ul>
-  <li>me</li>
-  <li>te</li>
-  <li>le / la</li>
-  <li>nous</li>
-  <li>vous</li>
-  <li>les</li>
-</ul>
-
-<h2>COI = Complément d’objet indirect</h2>
-<p>
-→ <strong>indirektes Objekt</strong><br>
-→ <strong>Dativ</strong> (wem?)<br><br>
-Der COI hat <strong>immer eine Präposition</strong> davor: meistens <strong>à</strong> oder <strong>de</strong>.
-</p>
-
-<h3>Beispiele:</h3>
-<ul>
-  <li>Je parle <strong>à Marie</strong>. → Ich spreche mit Marie.</li>
-  <li>Il pense <strong>à l’école</strong>. → Er denkt an die Schule.</li>
-  <li>J’ai besoin <strong>d’une pause</strong>. → Ich brauche eine Pause.</li>
-</ul>
-
-<!-- HIER KOMMT DAS BILD -->
-<img src="coi_cod.jpg" alt="COD und COI Illustration" style="max-width: 300px; display: block; margin: 20px 0;">
-
-<h2>COD und COI erkennen</h2>
-
-<h3>Je pense à l’école → J’y pense.</h3>
-<p>„à l’école“ = mit <strong>à</strong> → COI → ersetzt durch <strong>y</strong></p>
-
-<h3>J’ai besoin d’une pause → J’en ai besoin.</h3>
-<p>„d’une pause“ = mit <strong>de</strong> → COI → ersetzt durch <strong>en</strong></p>
-
-<h3>J’achète trois pommes → J’en achète trois.</h3>
-<p>„trois pommes“ = kein à/de → COD → ersetzt durch <strong>en</strong> (Menge)</p>
-
-<h3>Merksatz</h3>
-<p><strong>COD = ohne Präposition</strong><br>
-<strong>COI = mit à oder de</strong></p>
-</p>
-    </div>
+<div class="info-box">
+  <strong>So funktioniert das Quiz:</strong><br><br>
+  Du hast <strong>5 Versuche pro Runde</strong> (10 Sätze).  
+  Wenn du auf <strong>Korrigieren</strong> klickst, werden falsche Antworten erklärt.  
+  Mit <strong>Wiederholen</strong> werden nur die falschen Felder <strong>gelöscht</strong>, damit du sie erneut versuchen kannst.  
+  Nach 5 Versuchen werden die richtigen Lösungen angezeigt und du kannst mit <strong>Weiter</strong> eine neue Runde starten.
 </div>
 
-</style>
+<div class="quiz-container">
+  <h2>COD/COI Quiz</h2>
 
-<h2>COD/COI Übung</h2>
+  <div class="quiz-header">
+    <div>
+      <label for="mode">Modus:</label>
+      <select id="mode">
+        <option value="both">COD &amp; COI</option>
+        <option value="cod">nur COD</option>
+        <option value="coi">nur COI</option>
+      </select>
+    </div>
 
-<div class="exercise-box">
-  <label>Schwierigkeitsgrad:</label><br>
-  <input type="range" id="level" min="1" max="3" value="1">
-  <span id="levelText">Einfach</span>
+    <div>
+      <label for="level">Schwierigkeitsgrad:</label>
+      <input type="range" id="level" min="1" max="3" value="1">
+      <span id="levelText">Einfach</span>
+    </div>
 
-  <p id="sentence">Ersetze: Je vois le chien.</p>
+    <div class="attempts">
+      Versuche: <span id="attemptCount">0</span> / 5
+    </div>
+  </div>
 
-  <input type="text" id="answer" placeholder="Deine Antwort">
-  <button onclick="checkAnswer()">Korrigieren</button>
+  <div id="sentences"></div>
 
-  <div id="feedback" class="feedback"></div>
+  <div class="controls">
+    <button id="checkBtn" onclick="checkAll()">Korrigieren</button>
+    <button id="repeatBtn" onclick="repeatWrong()">Wiederholen</button>
+    <button id="nextBtn" onclick="nextRound()" style="display:none;">Weiter</button>
+    <span id="roundFeedback" class="feedback"></span>
+  </div>
 </div>
 
 <script>
   const exercises = {
-    1: [
-      { s: "Je vois le chien.", a: "Je le vois.", reason: "COD → le chien → le" },
-      { s: "Tu manges la pomme.", a: "Tu la manges.", reason: "COD → la pomme → la" }
-    ],
-    2: [
-      { s: "Je parle à Marie.", a: "Je lui parle.", reason: "COI → à Marie → lui" },
-      { s: "Il pense à l’école.", a: "Il y pense.", reason: "COI → à l’école → y" }
-    ],
-    3: [
-      { s: "J’ai besoin d’une pause.", a: "J’en ai besoin.", reason: "COI → de + Nomen → en" },
-      { s: "J’achète trois pommes.", a: "J’en achète trois.", reason: "COD (Menge) → en" }
-    ]
+    cod: {
+      1: [
+        { s: "Je vois le chien.", a: "Je le vois.", reason: "COD → le chien → le" },
+        { s: "Tu manges la pomme.", a: "Tu la manges.", reason: "COD → la pomme → la" },
+        { s: "Je regarde la télé.", a: "Je la regarde.", reason: "COD → la télé → la" }
+      ],
+      2: [
+        { s: "Nous finissons le devoir.", a: "Nous le finissons.", reason: "COD → le devoir → le" },
+        { s: "Ils prennent le bus.", a: "Ils le prennent.", reason: "COD → le bus → le" }
+      ],
+      3: [
+        { s: "J’achète trois pommes.", a: "J’en achète trois.", reason: "COD (Menge) → en" },
+        { s: "Elle lit ce livre.", a: "Elle le lit.", reason: "COD → ce livre → le" }
+      ]
+    },
+    coi: {
+      1: [
+        { s: "Je parle à Marie.", a: "Je lui parle.", reason: "COI → à Marie → lui" },
+        { s: "Il pense à l’école.", a: "Il y pense.", reason: "COI → à l’école → y" },
+        { s: "Nous écrivons à nos amis.", a: "Nous leur écrivons.", reason: "COI → à nos amis → leur" }
+      ],
+      2: [
+        { s: "Je téléphone à mon père.", a: "Je lui téléphone.", reason: "COI → à mon père → lui" },
+        { s: "Tu réponds aux professeurs.", a: "Tu leur réponds.", reason: "COI → aux professeurs → leur" }
+      ],
+      3: [
+        { s: "J’ai besoin d’une pause.", a: "J’en ai besoin.", reason: "COI → de + Nomen → en" },
+        { s: "Elle revient de Paris.", a: "Elle en revient.", reason: "COI → de Paris → en" }
+      ]
+    },
+    both: {}
   };
 
-  let current = exercises[1][0];
+  for (let lvl = 1; lvl <= 3; lvl++) {
+    exercises.both[lvl] = [
+      ...exercises.cod[lvl],
+      ...exercises.coi[lvl]
+    ];
+  }
 
-  document.getElementById("level").addEventListener("input", function() {
-    const lvl = this.value;
-    document.getElementById("levelText").textContent =
+  let currentSet = [];
+  let attemptCount = 0;
+  const maxAttempts = 5;
+
+  const levelEl = document.getElementById("level");
+  const levelTextEl = document.getElementById("levelText");
+  const modeEl = document.getElementById("mode");
+  const sentencesEl = document.getElementById("sentences");
+  const attemptCountEl = document.getElementById("attemptCount");
+  const roundFeedbackEl = document.getElementById("roundFeedback");
+  const checkBtn = document.getElementById("checkBtn");
+  const repeatBtn = document.getElementById("repeatBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  function updateLevelText() {
+    const lvl = levelEl.value;
+    levelTextEl.textContent =
       lvl == 1 ? "Einfach" : lvl == 2 ? "Mittel" : "Schwer";
+  }
 
-    current = exercises[lvl][Math.floor(Math.random() * exercises[lvl].length)];
-    document.getElementById("sentence").textContent = "Ersetze: " + current.s;
-    document.getElementById("feedback").textContent = "";
-    document.getElementById("answer").value = "";
-  });
+  function getPool() {
+    const mode = modeEl.value;
+    const lvl = levelEl.value;
+    return exercises[mode][lvl];
+  }
 
-  function checkAnswer() {
-    const user = document.getElementById("answer").value.trim();
-    const fb = document.getElementById("feedback");
+  function loadSentences() {
+    updateLevelText();
+    attemptCount = 0;
+    attemptCountEl.textContent = attemptCount;
+    roundFeedbackEl.textContent = "";
+    checkBtn.disabled = false;
+    repeatBtn.disabled = false;
+    nextBtn.style.display = "none";
 
-    if (user === current.a) {
-      fb.textContent = "Richtig! 🎉";
-      fb.style.color = "green";
+    const pool = getPool();
+    currentSet = [];
+
+    while (currentSet.length < 10 && currentSet.length < pool.length) {
+      const random = pool[Math.floor(Math.random() * pool.length)];
+      if (!currentSet.includes(random)) currentSet.push(random);
+    }
+
+    while (currentSet.length < 10) {
+      const random = pool[Math.floor(Math.random() * pool.length)];
+      currentSet.push(random);
+    }
+
+    let html = "";
+    currentSet.forEach((ex, i) => {
+      html += `
+        <div class="sentence-box" id="box${i}">
+          <strong>Satz ${i+1}:</strong> ${ex.s}
+          <input type="text" class="sentence-input" id="answer${i}" placeholder="Deine Antwort">
+          <div id="feedback${i}" class="feedback"></div>
+        </div>
+      `;
+    });
+
+    sentencesEl.innerHTML = html;
+  }
+
+  function checkAll() {
+    if (attemptCount >= maxAttempts) return;
+
+    let correctCount = 0;
+
+    currentSet.forEach((ex, i) => {
+      const input = document.getElementById("answer"+i);
+      const fb = document.getElementById("feedback"+i);
+      const user = input.value.trim();
+
+      if (!user) {
+        fb.textContent = "";
+        return;
+      }
+
+      if (user === ex.a) {
+        fb.textContent = "Richtig! 🎉";
+        fb.style.color = "green";
+        correctCount++;
+      } else {
+        fb.innerHTML = `Falsch ❌<br>Richtige Lösung: ${ex.a}<br>Grund: ${ex.reason}`;
+        fb.style.color = "red";
+      }
+    });
+
+    attemptCount++;
+    attemptCountEl.textContent = attemptCount;
+
+    if (correctCount === currentSet.length) {
+      roundFeedbackEl.textContent = "Alle richtig! Super gemacht! 🎉";
+      checkBtn.disabled = true;
+      repeatBtn.disabled = true;
+      nextBtn.style.display = "inline-block";
+      return;
+    }
+
+    if (attemptCount >= maxAttempts) {
+      currentSet.forEach((ex, i) => {
+        const input = document.getElementById("answer"+i);
+        const fb = document.getElementById("feedback"+i);
+        if (input.value.trim() !== ex.a) {
+          fb.innerHTML = `Lösung: ${ex.a}<br>Grund: ${ex.reason}`;
+          fb.style.color = "blue";
+        }
+        input.disabled = true;
+      });
+      roundFeedbackEl.textContent = "Versuche aufgebraucht – Lösungen werden angezeigt.";
+      checkBtn.disabled = true;
+      repeatBtn.disabled = true;
+      nextBtn.style.display = "inline-block";
     } else {
-      fb.innerHTML = "Falsch ❌<br>Richtige Lösung: " + current.a +
-                     "<br>Grund: " + current.reason;
-      fb.style.color = "red";
+      roundFeedbackEl.textContent = `${correctCount} von ${currentSet.length} richtig. Du kannst falsche Antworten mit „Wiederholen“ löschen und erneut versuchen.`;
     }
   }
+
+  function repeatWrong() {
+    currentSet.forEach((ex, i) => {
+      const input = document.getElementById("answer"+i);
+      const fb = document.getElementById("feedback"+i);
+      if (fb.textContent.startsWith("Falsch") || fb.innerHTML.startsWith("Falsch")) {
+        input.value = "";
+        fb.textContent = "";
+      }
+    });
+    roundFeedbackEl.textContent = "Falsche Antworten wurden gelöscht. Versuche es nochmal!";
+  }
+
+  function nextRound() {
+    loadSentences();
+  }
+
+  levelEl.addEventListener("input", loadSentences);
+  modeEl.addEventListener("change", loadSentences);
+
+  loadSentences();
 </script>
 
 </main>
