@@ -133,29 +133,41 @@
     font-size: 28px;
   }
 
+  /* Dunkle Navigation */
   header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: white;
-    padding: 15px 20px;
+    background: #1e1e1e; /* dunkles Grau */
+    padding: 18px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #000;
     z-index: 9999;
   }
 
+  header h1 {
+    color: white;
+  }
+
   header nav a {
-    margin-left: 15px;
+    margin-left: 20px;
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 26px;
   }
 
   header nav a:hover {
-    color: #0055a4;
+    color: #4aa3ff;
+  }
+
+  #darkToggle {
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
   }
 
   .exercise-box {
@@ -170,6 +182,14 @@
     margin-top: 15px;
     font-weight: bold;
   }
+
+  /* Größerer PDF-Link */
+  .pdf-link {
+    font-size: 22px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+  }
 </style>
 
 </head>
@@ -179,10 +199,8 @@
 <header>
     <h1>Französisch</h1>
     <nav>
+        <!-- Nur Startseite bleibt -->
         <a href="index.html">Startseite</a>
-        <a href="#pdf">PDF</a>
-        <a href="#trainer">Übung</a>
-        <a href="#grammatik">COI & COD</a>
         <span id="darkToggle">🌙</span>
     </nav>
 </header>
@@ -201,12 +219,13 @@
 
     <div class="fancy-content">
 
-        <!-- PDF-Link -->
-        <p>
-            <a href="Franzosisch_verben_liste.pdf" target="_blank">
-                📄 Verbenliste als PDF öffnen
-            </a>
-        </p>
+        <!-- Neue Überschrift über dem PDF-Link -->
+        <h2>Link zur Verbenliste</h2>
+
+        <!-- Grösserer PDF-Link -->
+        <a href="Franzosisch_verben_liste.pdf" target="_blank" class="pdf-link">
+            Verbenliste als PDF öffnen
+        </a>
 
         <hr>
 
@@ -261,6 +280,7 @@
     <div class="fancy-header">COI & COD</div>
     <div class="fancy-content">
         <h1>COD & COI</h1>
+
 
 <h2>COD = Complément d’objet direct</h2>
 <p>
